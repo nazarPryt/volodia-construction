@@ -1,0 +1,61 @@
+# Dependencies
+node_modules
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Build outputs
+dist
+build
+out
+.next
+.nuxt
+.cache
+.vite
+.turbo
+
+# Coverage
+coverage
+*.lcov
+.nyc_output
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Git
+.git
+.gitignore
+
+# Generated files
+*.min.js
+*.min.css
+*.bundle.js
+
+For **Next.js:**
+```
+# Add these
+.next
+public
+```
+
+For **TypeScript:**
+```
+# Add these
+*.d.ts
