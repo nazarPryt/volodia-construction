@@ -47,7 +47,7 @@ Thumbs.db
 *.min.js
 *.min.css
 *.bundle.js
-
+CLAUDE.md
 For **Next.js:**
 ```
 # Add these
