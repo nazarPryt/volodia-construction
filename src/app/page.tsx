@@ -1,52 +1,174 @@
-import Image from 'next/image'
+import Hero from '@/components/Hero'
+import ServiceCard from '@/components/ServiceCard'
+import CallButton from '@/components/CallButton'
+import Link from 'next/link'
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between bg-white px-16 py-32 sm:items-start dark:bg-black">
-        <Image className="dark:invert" src="/next.svg" alt="Next.js logo" width={100} height={20} priority />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl leading-10 font-semibold tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{' '}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <>
+      <Hero />
+
+      {/* Services Preview */}
+      <section className="bg-background w-full py-16">
+        <div className="container mx-auto max-w-7xl px-4">
+          <div className="mb-12 text-center">
+            <h2 className="text-foreground mb-4 text-3xl font-bold">Наші послуги</h2>
+            <p className="text-foreground/70">
+              Виконуємо всі види ремонтних робіт з високою якістю та дотриманням термінів
+            </p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <ServiceCard
+              icon="🏠"
+              title="Ремонт під ключ"
+              description="Повний цикл робіт від демонтажу до фінішного оздоблення. Ідеально для нових квартир."
+              link="/services"
+            />
+            <ServiceCard
+              icon="🎨"
+              title="Косметичний ремонт"
+              description="Швидке оновлення інтер'єру: фарбування, шпалери, підлоги та інші оздоблювальні роботи."
+              link="/services"
+            />
+            <ServiceCard
+              icon="🔨"
+              title="Капітальний ремонт"
+              description="Повна реконструкція приміщення з заміною комунікацій та перепланування."
+              link="/services"
+            />
+            <ServiceCard
+              icon="⚡"
+              title="Електрика"
+              description="Монтаж проводки, установка розеток, світильників та електричних щитів."
+              link="/services"
+            />
+            <ServiceCard
+              icon="🚿"
+              title="Сантехніка"
+              description="Заміна труб, установка сантехнічного обладнання, підключення приладів."
+              link="/services"
+            />
+            <ServiceCard
+              icon="◼️"
+              title="Плиткові роботи"
+              description="Укладання керамічної плитки, керамограніту, мозаїки в кухнях та ванних."
+              link="/services"
+            />
+          </div>
+
+          <div className="mt-10 text-center">
+            <Link
+              href="/services"
+              className="inline-block rounded-lg border-2 border-blue-600 px-8 py-3 text-base font-semibold text-blue-600 transition-colors hover:bg-blue-50 dark:hover:bg-blue-950/20"
             >
-              Templates
-            </a>{' '}
-            or the{' '}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              Всі послуги та ціни
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio Preview */}
+      <section className="dark:from-background w-full bg-gradient-to-b from-white to-blue-50 py-16 dark:to-blue-950/20">
+        <div className="container mx-auto max-w-7xl px-4">
+          <div className="mb-12 text-center">
+            <h2 className="text-foreground mb-4 text-3xl font-bold">Наші роботи</h2>
+            <p className="text-foreground/70">Переглядайте приклади виконаних проєктів</p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Placeholder for portfolio images - will be replaced with actual content */}
+            {[1, 2, 3].map(item => (
+              <div
+                key={item}
+                className="group bg-foreground/5 relative aspect-[4/3] overflow-hidden rounded-lg transition-transform hover:scale-[1.02]"
+              >
+                <div className="text-foreground/30 flex h-full items-center justify-center">
+                  <div className="text-center">
+                    <div className="mb-2 text-4xl">📸</div>
+                    <div className="text-sm">Фото проєкту {item}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <Link
+              href="/portfolio"
+              className="inline-block rounded-lg bg-blue-600 px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-blue-700"
             >
-              Learning
-            </a>{' '}
-            center.
+              Дивитись всі роботи
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="bg-background w-full py-16">
+        <div className="container mx-auto max-w-7xl px-4">
+          <div className="mb-12 text-center">
+            <h2 className="text-foreground mb-4 text-3xl font-bold">Чому обирають нас</h2>
+          </div>
+
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="text-center">
+              <div className="mb-4 text-5xl">✅</div>
+              <h3 className="text-foreground mb-2 text-lg font-semibold">Гарантія якості</h3>
+              <p className="text-foreground/70 text-sm">
+                Надаємо гарантію на всі види робіт. Використовуємо тільки перевірені матеріали.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="mb-4 text-5xl">⏱️</div>
+              <h3 className="text-foreground mb-2 text-lg font-semibold">Дотримання термінів</h3>
+              <p className="text-foreground/70 text-sm">
+                Складаємо чіткий графік робіт та строго його дотримуємось без затримок.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="mb-4 text-5xl">💰</div>
+              <h3 className="text-foreground mb-2 text-lg font-semibold">Прозора ціна</h3>
+              <p className="text-foreground/70 text-sm">
+                Фіксована вартість після оцінки. Без прихованих платежів та доплат.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="mb-4 text-5xl">🤝</div>
+              <h3 className="text-foreground mb-2 text-lg font-semibold">Індивідуальний підхід</h3>
+              <p className="text-foreground/70 text-sm">
+                Враховуємо всі побажання клієнта та пропонуємо оптимальні рішення.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="w-full bg-gradient-to-r from-blue-600 to-blue-700 py-16">
+        <div className="container mx-auto max-w-7xl px-4 text-center">
+          <h2 className="mb-4 text-3xl font-bold text-white">Готові почати ремонт?</h2>
+          <p className="mb-8 text-lg text-white/90">
+            Зателефонуйте нам прямо зараз для безкоштовної консультації та оцінки вартості робіт
           </p>
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
+            <a
+              href="tel:+380000000000"
+              className="rounded-lg bg-white px-8 py-3 text-base font-semibold text-blue-600 transition-colors hover:bg-gray-100"
+            >
+              📞 Зателефонувати зараз
+            </a>
+            <Link
+              href="/contact"
+              className="rounded-lg border-2 border-white px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              Написати повідомлення
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="bg-foreground text-background flex h-12 w-full items-center justify-center gap-2 rounded-full px-5 transition-colors hover:bg-[#383838] md:w-[158px] dark:hover:bg-[#ccc]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image className="dark:invert" src="/vercel.svg" alt="Vercel logomark" width={16} height={16} />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] md:w-[158px] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+
+      <CallButton />
+    </>
   )
 }
