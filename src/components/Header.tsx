@@ -5,14 +5,7 @@ import { usePathname } from 'next/navigation'
 import { useState, useEffect, useRef } from 'react'
 import { PATH } from '@/config/PATH'
 import { CONTACT_INFO } from '@/config/contacts'
-
-const navigation = [
-  { name: 'Головна', href: PATH.HOME },
-  { name: 'Послуги', href: PATH.SERVICES },
-  { name: 'Портфоліо', href: PATH.PORTFOLIO },
-  { name: 'Про майстра', href: PATH.ABOUT },
-  { name: 'Контакти', href: PATH.CONTACT },
-]
+import { NAVIGATION } from '@/config/navigation'
 
 export default function Header() {
   const pathname = usePathname()
@@ -59,7 +52,7 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <ul className="hidden items-center gap-6 md:flex">
-            {navigation.map(item => (
+            {NAVIGATION.map(item => (
               <li key={item.name}>
                 <Link
                   href={item.href}
@@ -146,7 +139,7 @@ export default function Header() {
           {/* Navigation Links */}
           <div className="flex-1 overflow-y-auto px-6 py-6">
             <ul className="space-y-2">
-              {navigation.map(item => (
+              {NAVIGATION.map(item => (
                 <li key={item.name}>
                   <Link
                     href={item.href}

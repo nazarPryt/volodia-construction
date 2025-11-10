@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { PATH } from '@/config/PATH'
 import { CONTACT_INFO } from '@/config/contacts'
+import { NAVIGATION } from '@/config/navigation'
 
 export default function Footer() {
   return (
@@ -19,26 +19,13 @@ export default function Footer() {
           <div>
             <h3 className="mb-4 text-lg font-semibold">Навігація</h3>
             <ul className="space-y-2 text-sm">
-              <li>
-                <Link href={PATH.SERVICES} className="text-foreground/60 hover:text-foreground transition-colors">
-                  Послуги
-                </Link>
-              </li>
-              <li>
-                <Link href={PATH.PORTFOLIO} className="text-foreground/60 hover:text-foreground transition-colors">
-                  Портфоліо
-                </Link>
-              </li>
-              <li>
-                <Link href={PATH.ABOUT} className="text-foreground/60 hover:text-foreground transition-colors">
-                  Про майстра
-                </Link>
-              </li>
-              <li>
-                <Link href={PATH.CONTACT} className="text-foreground/60 hover:text-foreground transition-colors">
-                  Контакти
-                </Link>
-              </li>
+              {NAVIGATION.filter(item => item.name !== 'Головна').map(item => (
+                <li key={item.name}>
+                  <Link href={item.href} className="text-foreground/60 hover:text-foreground transition-colors">
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
