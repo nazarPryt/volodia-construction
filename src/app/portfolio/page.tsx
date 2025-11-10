@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import CallButton from '@/components/CallButton'
 import Link from 'next/link'
+import { PATH } from '@/config/PATH'
 
 export const metadata: Metadata = {
   title: 'Портфоліо | Ремонт Квартир',
@@ -87,7 +88,7 @@ export default function PortfolioPage() {
               📞 Зателефонувати
             </a>
             <Link
-              href="/contact"
+              href={PATH.CONTACT}
               className="rounded-lg border-2 border-white px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-white/10"
             >
               Написати повідомлення

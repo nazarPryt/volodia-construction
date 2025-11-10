@@ -2,6 +2,7 @@ import Hero from '@/components/Hero'
 import ServiceCard from '@/components/ServiceCard'
 import CallButton from '@/components/CallButton'
 import Link from 'next/link'
+import { PATH } from '@/config/PATH'
 
 export default function Home() {
   return (
@@ -23,43 +24,43 @@ export default function Home() {
               icon="🏠"
               title="Ремонт під ключ"
               description="Повний цикл робіт від демонтажу до фінішного оздоблення. Ідеально для нових квартир."
-              link="/services"
+              link={PATH.SERVICES}
             />
             <ServiceCard
               icon="🎨"
               title="Косметичний ремонт"
               description="Швидке оновлення інтер'єру: фарбування, шпалери, підлоги та інші оздоблювальні роботи."
-              link="/services"
+              link={PATH.SERVICES}
             />
             <ServiceCard
               icon="🔨"
               title="Капітальний ремонт"
               description="Повна реконструкція приміщення з заміною комунікацій та перепланування."
-              link="/services"
+              link={PATH.SERVICES}
             />
             <ServiceCard
               icon="⚡"
               title="Електрика"
               description="Монтаж проводки, установка розеток, світильників та електричних щитів."
-              link="/services"
+              link={PATH.SERVICES}
             />
             <ServiceCard
               icon="🚿"
               title="Сантехніка"
               description="Заміна труб, установка сантехнічного обладнання, підключення приладів."
-              link="/services"
+              link={PATH.SERVICES}
             />
             <ServiceCard
               icon="◼️"
               title="Плиткові роботи"
               description="Укладання керамічної плитки, керамограніту, мозаїки в кухнях та ванних."
-              link="/services"
+              link={PATH.SERVICES}
             />
           </div>
 
           <div className="mt-10 text-center">
             <Link
-              href="/services"
+              href={PATH.SERVICES}
               className="inline-block rounded-lg border-2 border-blue-600 px-8 py-3 text-base font-semibold text-blue-600 transition-colors hover:bg-blue-50 dark:hover:bg-blue-950/20"
             >
               Всі послуги та ціни
@@ -95,7 +96,7 @@ export default function Home() {
 
           <div className="mt-10 text-center">
             <Link
-              href="/portfolio"
+              href={PATH.PORTFOLIO}
               className="inline-block rounded-lg bg-blue-600 px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-blue-700"
             >
               Дивитись всі роботи
@@ -159,7 +160,7 @@ export default function Home() {
               📞 Зателефонувати зараз
             </a>
             <Link
-              href="/contact"
+              href={PATH.CONTACT}
               className="rounded-lg border-2 border-white px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-white/10"
             >
               Написати повідомлення

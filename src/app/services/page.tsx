@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import CallButton from '@/components/CallButton'
 import Link from 'next/link'
+import { PATH } from '@/config/PATH'
 
 export const metadata: Metadata = {
   title: 'Послуги | Ремонт Квартир',
@@ -201,7 +202,7 @@ export default function ServicesPage() {
                 Замовити розрахунок
               </a>
               <Link
-                href="/contact"
+                href={PATH.CONTACT}
                 className="rounded-lg border-2 border-blue-600 px-8 py-3 text-base font-semibold text-blue-600 transition-colors hover:bg-blue-50 dark:hover:bg-blue-950/20"
               >
                 Написати нам

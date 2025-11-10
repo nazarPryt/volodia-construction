@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { PATH } from '@/config/PATH'
 
 export default function Footer() {
   return (
@@ -18,22 +19,22 @@ export default function Footer() {
             <h3 className="mb-4 text-lg font-semibold">Навігація</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/services" className="text-foreground/60 hover:text-foreground transition-colors">
+                <Link href={PATH.SERVICES} className="text-foreground/60 hover:text-foreground transition-colors">
                   Послуги
                 </Link>
               </li>
               <li>
-                <Link href="/portfolio" className="text-foreground/60 hover:text-foreground transition-colors">
+                <Link href={PATH.PORTFOLIO} className="text-foreground/60 hover:text-foreground transition-colors">
                   Портфоліо
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-foreground/60 hover:text-foreground transition-colors">
+                <Link href={PATH.ABOUT} className="text-foreground/60 hover:text-foreground transition-colors">
                   Про майстра
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-foreground/60 hover:text-foreground transition-colors">
+                <Link href={PATH.CONTACT} className="text-foreground/60 hover:text-foreground transition-colors">
                   Контакти
                 </Link>
               </li>

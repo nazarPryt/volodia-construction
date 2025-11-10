@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { PATH } from '@/config/PATH'
 
 export default function Hero() {
   return (
@@ -21,7 +22,7 @@ export default function Hero() {
               Замовити дзвінок
             </a>
             <Link
-              href="/portfolio"
+              href={PATH.PORTFOLIO}
               className="rounded-lg border-2 border-blue-600 px-8 py-3 text-base font-semibold text-blue-600 transition-colors hover:bg-blue-50 dark:hover:bg-blue-950/20"
             >
               Дивитись роботи

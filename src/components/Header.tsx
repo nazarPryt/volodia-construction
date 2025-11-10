@@ -3,13 +3,14 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect, useRef } from 'react'
+import { PATH } from '@/config/PATH'
 
 const navigation = [
-  { name: 'Головна', href: '/' },
-  { name: 'Послуги', href: '/services' },
-  { name: 'Портфоліо', href: '/portfolio' },
-  { name: 'Про майстра', href: '/about' },
-  { name: 'Контакти', href: '/contact' },
+  { name: 'Головна', href: PATH.HOME },
+  { name: 'Послуги', href: PATH.SERVICES },
+  { name: 'Портфоліо', href: PATH.PORTFOLIO },
+  { name: 'Про майстра', href: PATH.ABOUT },
+  { name: 'Контакти', href: PATH.CONTACT },
 ]
 
 export default function Header() {
@@ -51,7 +52,7 @@ export default function Header() {
     <>
       <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur">
         <nav className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
-          <Link href="/" className="text-foreground text-xl font-bold">
+          <Link href={PATH.HOME} className="text-foreground text-xl font-bold">
             Ремонт Квартир
           </Link>
 
