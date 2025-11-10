@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect, useRef } from 'react'
 import { PATH } from '@/config/PATH'
+import { CONTACT_INFO } from '@/config/contacts'
 
 const navigation = [
   { name: 'Головна', href: PATH.HOME },
@@ -74,7 +75,7 @@ export default function Header() {
 
           {/* CTA Button */}
           <a
-            href="tel:+380000000000"
+            href={`tel:${CONTACT_INFO.PHONE.NUMBER}`}
             className="hidden rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-700 md:block"
           >
             Зателефонувати
@@ -166,7 +167,7 @@ export default function Header() {
           {/* Call Button at Bottom */}
           <div className="border-t px-6 py-4">
             <a
-              href="tel:+380000000000"
+              href={`tel:${CONTACT_INFO.PHONE.NUMBER}`}
               className="block rounded-lg bg-blue-600 px-4 py-3 text-center text-base font-semibold text-white transition-colors hover:bg-blue-700"
               onClick={() => setIsMobileMenuOpen(false)}
             >

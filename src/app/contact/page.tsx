@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import ContactForm from '@/components/ContactForm'
 import CallButton from '@/components/CallButton'
+import { CONTACT_INFO } from '@/config/contacts'
 
 export const metadata: Metadata = {
   title: 'Контакти | Ремонт Квартир',
@@ -37,8 +38,11 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-foreground mb-1 font-semibold">Телефон</h3>
-                    <a href="tel:+380000000000" className="text-lg text-blue-600 transition-colors hover:text-blue-700">
-                      +380 (00) 000-00-00
+                    <a
+                      href={`tel:${CONTACT_INFO.PHONE.NUMBER}`}
+                      className="text-lg text-blue-600 transition-colors hover:text-blue-700"
+                    >
+                      {CONTACT_INFO.PHONE.DISPLAY}
                     </a>
                     <p className="text-foreground/60 mt-1 text-sm">Дзвоніть щодня з 8:00 до 20:00</p>
                   </div>
@@ -53,26 +57,26 @@ export default function ContactPage() {
                     <h3 className="text-foreground mb-2 font-semibold">Месенджери</h3>
                     <div className="flex flex-col gap-2 text-sm">
                       <a
-                        href="https://t.me/username"
+                        href={`https://t.me/${CONTACT_INFO.SOCIAL.TELEGRAM}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600 transition-colors hover:text-blue-700"
                       >
-                        Telegram: @username
+                        Telegram: @{CONTACT_INFO.SOCIAL.TELEGRAM}
                       </a>
                       <a
-                        href="viber://chat?number=380000000000"
+                        href={`viber://chat?number=${CONTACT_INFO.SOCIAL.VIBER}`}
                         className="text-blue-600 transition-colors hover:text-blue-700"
                       >
-                        Viber: +380 (00) 000-00-00
+                        Viber: {CONTACT_INFO.PHONE.DISPLAY}
                       </a>
                       <a
-                        href="https://wa.me/380000000000"
+                        href={`https://wa.me/${CONTACT_INFO.SOCIAL.WHATSAPP}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600 transition-colors hover:text-blue-700"
                       >
-                        WhatsApp: +380 (00) 000-00-00
+                        WhatsApp: {CONTACT_INFO.PHONE.DISPLAY}
                       </a>
                     </div>
                   </div>
@@ -85,8 +89,11 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-foreground mb-1 font-semibold">Email</h3>
-                    <a href="mailto:info@example.com" className="text-blue-600 transition-colors hover:text-blue-700">
-                      info@example.com
+                    <a
+                      href={`mailto:${CONTACT_INFO.EMAIL}`}
+                      className="text-blue-600 transition-colors hover:text-blue-700"
+                    >
+                      {CONTACT_INFO.EMAIL}
                     </a>
                     <p className="text-foreground/60 mt-1 text-sm">Відповідаємо протягом 24 годин</p>
                   </div>
@@ -99,7 +106,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-foreground mb-1 font-semibold">Робочий регіон</h3>
-                    <p className="text-foreground/70">м. Київ та Київська область</p>
+                    <p className="text-foreground/70">м. Тернопіль та Тернопільська область</p>
                     <p className="text-foreground/60 mt-1 text-sm">Безкоштовний виїзд для оцінки вартості робіт</p>
                   </div>
                 </div>

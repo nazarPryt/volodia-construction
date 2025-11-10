@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { CONTACT_INFO } from '@/config/contacts'
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -120,8 +121,8 @@ export default function ContactForm() {
 
       <p className="text-foreground/60 text-center text-sm">
         Або зателефонуйте нам:{' '}
-        <a href="tel:+380000000000" className="font-semibold text-blue-600 hover:underline">
-          +380 (00) 000-00-00
+        <a href={`tel:${CONTACT_INFO.PHONE.NUMBER}`} className="font-semibold text-blue-600 hover:underline">
+          {CONTACT_INFO.PHONE.DISPLAY}
         </a>
       </p>
     </form>

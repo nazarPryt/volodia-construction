@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import CallButton from '@/components/CallButton'
 import Link from 'next/link'
 import { PATH } from '@/config/PATH'
+import { CONTACT_INFO } from '@/config/contacts'
 
 export const metadata: Metadata = {
   title: 'Про майстра | Ремонт Квартир',
@@ -208,7 +209,7 @@ export default function AboutPage() {
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <a
-              href="tel:+380000000000"
+              href={`tel:${CONTACT_INFO.PHONE.NUMBER}`}
               className="rounded-lg bg-white px-8 py-3 text-base font-semibold text-blue-600 transition-colors hover:bg-gray-100"
             >
               📞 Зателефонувати
