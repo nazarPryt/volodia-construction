@@ -8,14 +8,14 @@
   --background-icon: #e0e7ff;
 
   /* Primary colors */
-  --primary: #6366f1;
-  --primary-hover: #4f46e5;
-  --primary-dark: #4338ca;
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-dark: #3730a3;
 
   /* Text colors */
   --foreground: #0f172a;
-  --text-muted: #334155;
-  --text-dim: #64748b;
+  --text-muted: #1e293b;
+  --text-dim: #475569;
 
   /* Accent colors */
   --accent-blue: #3b82f6;
