@@ -1,22 +1,91 @@
 @import 'tailwindcss';
 
 :root {
+  /* Light theme colors */
   --background: #ffffff;
-  --foreground: #171717;
+  --background-dark: #f1f5f9;
+  --background-card: #f8fafc;
+  --background-icon: #e0e7ff;
+
+  /* Primary colors */
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --primary-dark: #4338ca;
+
+  /* Text colors */
+  --foreground: #0f172a;
+  --text-muted: #334155;
+  --text-dim: #64748b;
+
+  /* Accent colors */
+  --accent-blue: #3b82f6;
+  --accent-green: #10b981;
+  --accent-red: #ef4444;
+
+  /* Transitions */
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.dark {
+  /* Dark theme colors  */
+  --background: #0f172a;
+  --background-dark: #020617;
+  --background-card: #1e293b;
+  --background-icon: #334155;
+
+  /* Primary colors  */
+  --primary: #818cf8;
+  --primary-hover: #a5b4fc;
+  --primary-dark: #6366f1;
+
+  /* Text colors  */
+  --foreground: #f1f5f9;
+  --text-muted: #cbd5e1;
+  --text-dim: #94a3b8;
+
+  /* Accent colors remain the same */
+  --accent-blue: #60a5fa;
+  --accent-green: #34d399;
+  --accent-red: #f87171;
 }
 
 @theme inline {
+  /* Background */
   --color-background: var(--background);
+  --color-background-dark: var(--background-dark);
+  --color-background-card: var(--background-card);
+  --color-background-icon: var(--background-icon);
+
+  /* Primary */
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-dark: var(--primary-dark);
+
+  /* Text */
   --color-foreground: var(--foreground);
+  --color-text-muted: var(--text-muted);
+  --color-text-dim: var(--text-dim);
+
+  /* Accents */
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-green: var(--accent-green);
+  --color-accent-red: var(--accent-red);
+
+  /* Fonts */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Border radius */
+  --radius-card: 1rem;
+  --radius-button: 0.5rem;
+  --radius-icon: 0.75rem;
+
+  /* Spacing */
+  --spacing-section: 5rem;
+  --spacing-card: 2rem;
 }
 
 body {
@@ -24,4 +93,19 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
+}
+
+/* Smooth theme transitions for key elements only */
+body,
+header,
+nav,
+main,
+footer,
+section,
+[class*='bg-'],
+[class*='text-'] {
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }

@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from 'react'
 import { PATH } from '@/config/PATH'
 import { CONTACT_INFO } from '@/config/contacts'
 import { NAVIGATION } from '@/config/navigation'
+import ThemeToggle from '@/components/ThemeToggle'
 
 export default function Header() {
   const pathname = usePathname()
@@ -66,37 +67,43 @@ export default function Header() {
             ))}
           </ul>
 
-          {/* CTA Button */}
-          <a
-            href={`tel:${CONTACT_INFO.PHONE.NUMBER}`}
-            className="hidden rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-700 md:block"
-          >
-            Зателефонувати
-          </a>
+          {/* Right side actions */}
+          <div className="flex items-center gap-3">
+            {/* Theme Toggle */}
+            <ThemeToggle />
 
-          {/* Mobile Hamburger Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="flex flex-col gap-1.5 md:hidden"
-            aria-label="Toggle menu"
-            aria-expanded={isMobileMenuOpen}
-          >
-            <span
-              className={`bg-foreground block h-0.5 w-6 transition-all duration-300 ${
-                isMobileMenuOpen ? 'translate-y-2 rotate-45' : ''
-              }`}
-            />
-            <span
-              className={`bg-foreground block h-0.5 w-6 transition-all duration-300 ${
-                isMobileMenuOpen ? 'opacity-0' : ''
-              }`}
-            />
-            <span
-              className={`bg-foreground block h-0.5 w-6 transition-all duration-300 ${
-                isMobileMenuOpen ? '-translate-y-2 -rotate-45' : ''
-              }`}
-            />
-          </button>
+            {/* CTA Button */}
+            <a
+              href={`tel:${CONTACT_INFO.PHONE.NUMBER}`}
+              className="hidden rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-700 md:block"
+            >
+              Зателефонувати
+            </a>
+
+            {/* Mobile Hamburger Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="flex flex-col gap-1.5 md:hidden"
+              aria-label="Toggle menu"
+              aria-expanded={isMobileMenuOpen}
+            >
+              <span
+                className={`bg-foreground block h-0.5 w-6 transition-all duration-300 ${
+                  isMobileMenuOpen ? 'translate-y-2 rotate-45' : ''
+                }`}
+              />
+              <span
+                className={`bg-foreground block h-0.5 w-6 transition-all duration-300 ${
+                  isMobileMenuOpen ? 'opacity-0' : ''
+                }`}
+              />
+              <span
+                className={`bg-foreground block h-0.5 w-6 transition-all duration-300 ${
+                  isMobileMenuOpen ? '-translate-y-2 -rotate-45' : ''
+                }`}
+              />
+            </button>
+          </div>
         </nav>
       </header>
 
