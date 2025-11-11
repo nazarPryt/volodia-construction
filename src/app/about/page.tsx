@@ -3,11 +3,9 @@ import CallButton from '@/components/CallButton'
 import Link from 'next/link'
 import { PATH } from '@/config/PATH'
 import { CONTACT_INFO } from '@/config/contacts'
+import { PAGE_METADATA } from '@/config/metadata'
 
-export const metadata: Metadata = {
-  title: 'Про майстра | Ремонт Квартир',
-  description: 'Досвідчений майстер з ремонту квартир. Більше 10 років досвіду, понад 200 успішно завершених проєктів.',
-}
+export const metadata: Metadata = PAGE_METADATA.about
 
 export default function AboutPage() {
   return (

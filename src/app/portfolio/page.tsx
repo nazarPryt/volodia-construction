@@ -3,11 +3,9 @@ import CallButton from '@/components/CallButton'
 import Link from 'next/link'
 import { PATH } from '@/config/PATH'
 import { CONTACT_INFO } from '@/config/contacts'
+import { PAGE_METADATA } from '@/config/metadata'
 
-export const metadata: Metadata = {
-  title: 'Портфоліо | Ремонт Квартир',
-  description: 'Наші роботи: фото до та після ремонту квартир. Переглядайте завершені проєкти.',
-}
+export const metadata: Metadata = PAGE_METADATA.portfolio
 
 export default function PortfolioPage() {
   return (

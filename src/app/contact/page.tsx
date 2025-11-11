@@ -2,11 +2,9 @@ import { Metadata } from 'next'
 import ContactForm from '@/components/ContactForm'
 import CallButton from '@/components/CallButton'
 import { CONTACT_INFO } from '@/config/contacts'
+import { PAGE_METADATA } from '@/config/metadata'
 
-export const metadata: Metadata = {
-  title: 'Контакти | Ремонт Квартир',
-  description: 'Зв&apos;яжіться з нами для безкоштовної консультації. Телефон, Telegram, Viber, WhatsApp, email.',
-}
+export const metadata: Metadata = PAGE_METADATA.contact
 
 export default function ContactPage() {
   return (

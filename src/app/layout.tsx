@@ -4,6 +4,8 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { ThemeProvider } from '@/components/ThemeProvider'
+import { PAGE_METADATA } from '@/config/metadata'
+import { ReactNode } from 'react'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -15,16 +17,12 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 })
 
-export const metadata: Metadata = {
-  title: 'Ремонт Квартир | Професійний майстер у Києві',
-  description:
-    'Якісний ремонт квартир під ключ у Києві. Косметичний та капітальний ремонт. Досвідчений майстер, доступні ціни.',
-}
+export const metadata: Metadata = PAGE_METADATA.home
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: ReactNode
 }>) {
   return (
     <html lang="uk" suppressHydrationWarning>
