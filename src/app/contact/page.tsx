@@ -14,8 +14,7 @@ export default function ContactPage() {
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="text-foreground mb-4 text-4xl font-bold sm:text-5xl">Контакти</h1>
             <p className="text-foreground/70 text-lg">
-              Зв&apos;яжіться з нами зручним для вас способом. Ми завжди на зв&apos;язку та готові відповісти на всі
-              питання.
+              Зв'яжіться з нами зручним для вас способом. Ми завжди на зв'язку та готові відповісти на всі питання.
             </p>
           </div>
         </div>
@@ -26,7 +25,7 @@ export default function ContactPage() {
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             {/* Contact Information */}
             <div>
-              <h2 className="text-foreground mb-8 text-2xl font-bold">Як з нами зв&apos;язатися</h2>
+              <h2 className="text-foreground mb-8 text-2xl font-bold">Як з нами зв'язатися</h2>
 
               <div className="space-y-6">
                 {/* Phone */}
@@ -115,7 +114,7 @@ export default function ContactPage() {
                 <h3 className="text-foreground mb-4 text-lg font-semibold">Графік роботи</h3>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-foreground/70">Понеділок - П&apos;ятниця</span>
+                    <span className="text-foreground/70">Понеділок - П'ятниця</span>
                     <span className="text-foreground font-medium">8:00 - 20:00</span>
                   </div>
                   <div className="flex justify-between">
@@ -136,7 +135,7 @@ export default function ContactPage() {
               <div className="bg-card rounded-lg border p-6 lg:p-8">
                 <h2 className="text-foreground mb-6 text-2xl font-bold">Напишіть нам</h2>
                 <p className="text-foreground/70 mb-6">
-                  Заповніть форму, і ми зв&apos;яжемося з вами протягом години у робочий час
+                  Заповніть форму, і ми зв'яжемося з вами протягом години у робочий час
                 </p>
                 <ContactForm />
               </div>
@@ -153,16 +152,16 @@ export default function ContactPage() {
             <div className="bg-background rounded-lg p-6">
               <h3 className="text-foreground mb-2 text-lg font-semibold">Як швидко ви зможете почати роботу?</h3>
               <p className="text-foreground/70">
-                Зазвичай я можу виїхати на оцінку об&apos;єкта протягом 1-2 днів. Початок робіт можливий через 3-7 днів
-                після узгодження всіх деталей та підписання договору.
+                Зазвичай я можу виїхати на оцінку об'єкта протягом 1-2 днів. Початок робіт можливий через 3-7 днів після
+                узгодження всіх деталей та підписання договору.
               </p>
             </div>
 
             <div className="bg-background rounded-lg p-6">
-              <h3 className="text-foreground mb-2 text-lg font-semibold">Чи безкоштовний виїзд на об&apos;єкт?</h3>
+              <h3 className="text-foreground mb-2 text-lg font-semibold">Чи безкоштовний виїзд на об'єкт?</h3>
               <p className="text-foreground/70">
-                Так, я безкоштовно виїжджаю на об&apos;єкт для оцінки обсягу робіт та консультації. Це займає близько
-                30-60 хвилин.
+                Так, я безкоштовно виїжджаю на об'єкт для оцінки обсягу робіт та консультації. Це займає близько 30-60
+                хвилин.
               </p>
             </div>
 
@@ -178,7 +177,7 @@ export default function ContactPage() {
               <h3 className="text-foreground mb-2 text-lg font-semibold">Надаєте гарантію?</h3>
               <p className="text-foreground/70">
                 Так, я надаю письмову гарантію на всі види робіт від 1 до 3 років залежно від типу робіт. Завжди
-                підтримую зв&apos;язок з клієнтами після завершення ремонту.
+                підтримую зв'язок з клієнтами після завершення ремонту.
               </p>
             </div>
 

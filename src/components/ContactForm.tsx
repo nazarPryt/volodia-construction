@@ -38,7 +38,7 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-6">
       <div>
         <label htmlFor="name" className="text-foreground mb-2 block text-sm font-medium">
-          Ваше ім&apos;я <span className="text-red-500">*</span>
+          Ваше ім'я <span className="text-red-500">*</span>
         </label>
         <input
           type="text"
@@ -101,7 +101,7 @@ export default function ContactForm() {
 
       {status === 'success' && (
         <div className="rounded-lg bg-green-50 p-4 text-green-800 dark:bg-green-900/20 dark:text-green-300">
-          ✓ Дякуємо за звернення! Ми зв&apos;яжемося з вами найближчим часом.
+          ✓ Дякуємо за звернення! Ми зв'яжемося з вами найближчим часом.
         </div>
       )}
 

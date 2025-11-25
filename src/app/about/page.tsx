@@ -73,7 +73,7 @@ export default function AboutPage() {
                 </div>
                 <div>
                   <div className="mb-1 text-3xl font-bold text-blue-600">24/7</div>
-                  <div className="text-foreground/70 text-sm">На зв&apos;язку</div>
+                  <div className="text-foreground/70 text-sm">На зв'язку</div>
                 </div>
               </div>
             </div>
@@ -127,7 +127,7 @@ export default function AboutPage() {
               <div className="mb-4 text-4xl">🤝</div>
               <h3 className="text-foreground mb-2 text-xl font-semibold">Гарантія</h3>
               <p className="text-foreground/70 text-sm">
-                Надаю письмову гарантію на всі види робіт. Завжди на зв&apos;язку навіть після завершення ремонту.
+                Надаю письмову гарантію на всі види робіт. Завжди на зв'язку навіть після завершення ремонту.
               </p>
             </div>
           </div>
@@ -177,7 +177,7 @@ export default function AboutPage() {
                 4
               </div>
               <div>
-                <h3 className="text-foreground mb-2 text-lg font-semibold">Чистота на об&apos;єкті</h3>
+                <h3 className="text-foreground mb-2 text-lg font-semibold">Чистота на об'єкті</h3>
                 <p className="text-foreground/70">
                   Після кожного робочого дня прибираю за собою. Намагаюся мінімізувати незручності для клієнта.
                 </p>
@@ -203,7 +203,7 @@ export default function AboutPage() {
         <div className="container mx-auto max-w-7xl px-4 text-center">
           <h2 className="mb-4 text-3xl font-bold text-white">Готові почати співпрацю?</h2>
           <p className="mb-8 text-lg text-white/90">
-            Зателефонуйте мені, щоб обговорити ваш проєкт. Безкоштовно виїду на об&apos;єкт для оцінки та консультації.
+            Зателефонуйте мені, щоб обговорити ваш проєкт. Безкоштовно виїду на об'єкт для оцінки та консультації.
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <a

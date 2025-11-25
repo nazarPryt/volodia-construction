@@ -47,7 +47,7 @@ export default function Hero() {
           </div>
           <div className="text-center">
             <div className="mb-3 text-4xl font-bold text-blue-600">24/7</div>
-            <div className="text-foreground text-sm font-medium">Підтримка зв&apos;язку</div>
+            <div className="text-foreground text-sm font-medium">Підтримка зв'язку</div>
           </div>
         </div>
       </div>
