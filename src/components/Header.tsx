@@ -45,20 +45,20 @@ export default function Header() {
 
   return (
     <>
-      <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur">
+      <header className="border-border bg-background/95 supports-[backdrop-filter]:bg-background/80 sticky top-0 z-50 w-full border-b backdrop-blur">
         <nav className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
-          <Link href={PATH.HOME} className="text-foreground text-xl font-bold">
-            Ремонт Квартир
+          <Link href={PATH.HOME} className="font-heading text-foreground text-xl font-medium">
+            Volodia
           </Link>
 
           {/* Desktop Navigation */}
-          <ul className="hidden items-center gap-6 md:flex">
+          <ul className="hidden items-center gap-8 md:flex">
             {NAVIGATION.map(item => (
               <li key={item.name}>
                 <Link
                   href={item.href}
                   className={`hover:text-foreground text-sm font-medium transition-colors ${
-                    pathname === item.href ? 'text-foreground' : 'text-foreground/60'
+                    pathname === item.href ? 'text-foreground' : 'text-text-muted'
                   }`}
                 >
                   {item.name}
@@ -75,7 +75,7 @@ export default function Header() {
             {/* CTA Button */}
             <a
               href={`tel:${CONTACT_INFO.PHONE.NUMBER}`}
-              className="hidden rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-700 md:block"
+              className="btn-primary hidden md:inline-flex md:items-center md:justify-center"
             >
               Зателефонувати
             </a>
@@ -118,17 +118,17 @@ export default function Header() {
       {/* Mobile Menu Sidebar (Slide from Right) */}
       <div
         ref={mobileMenuRef}
-        className={`bg-background fixed top-0 right-0 z-[70] h-screen w-80 max-w-[85vw] overflow-hidden shadow-2xl transition-transform duration-300 md:hidden ${
+        className={`border-border bg-background fixed top-0 right-0 z-[70] h-screen w-80 max-w-[85vw] overflow-hidden border-l shadow-2xl transition-transform duration-300 md:hidden ${
           isMobileMenuOpen ? 'translate-x-0' : 'pointer-events-none translate-x-full'
         }`}
       >
         <div className="flex h-full flex-col">
           {/* Mobile Menu Header */}
-          <div className="flex items-center justify-between border-b px-6 py-4">
-            <span className="text-foreground text-lg font-bold">Меню</span>
+          <div className="border-border flex items-center justify-between border-b px-6 py-4">
+            <span className="font-heading text-foreground text-lg font-medium">Меню</span>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
-              className="hover:bg-foreground/5 rounded-lg p-2"
+              className="hover:bg-background-hover rounded-lg p-2"
               aria-label="Close menu"
             >
               <svg
@@ -153,8 +153,8 @@ export default function Header() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`block rounded-lg px-4 py-3 text-base font-medium transition-colors ${
                       pathname === item.href
-                        ? 'bg-blue-50 text-blue-600 dark:bg-blue-950 dark:text-blue-400'
-                        : 'text-foreground/80 hover:bg-foreground/5 hover:text-foreground'
+                        ? 'border-primary bg-primary/10 text-foreground border'
+                        : 'text-text-muted hover:bg-background-hover hover:text-foreground'
                     }`}
                   >
                     {item.name}
@@ -165,10 +165,10 @@ export default function Header() {
           </div>
 
           {/* Call Button at Bottom */}
-          <div className="border-t px-6 py-4">
+          <div className="border-border border-t px-6 py-4">
             <a
               href={`tel:${CONTACT_INFO.PHONE.NUMBER}`}
-              className="block rounded-lg bg-blue-600 px-4 py-3 text-center text-base font-semibold text-white transition-colors hover:bg-blue-700"
+              className="btn-primary block text-center"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Зателефонувати

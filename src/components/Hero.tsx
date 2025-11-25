@@ -1,30 +1,51 @@
 import Link from 'next/link'
 import { PATH } from '@/config/PATH'
 import { CONTACT_INFO } from '@/config/contacts'
+import BenefitCard from '@/components/BenefitCard'
+
+const benefits = [
+  { value: '10+', label: 'Років досвіду' },
+  { value: '200+', label: 'Завершених проєктів' },
+  { value: '100%', label: 'Задоволених клієнтів' },
+  { value: '24/7', label: 'Підтримка звязку' },
+]
 
 export default function Hero() {
   return (
-    <section className="dark:to-background relative w-full bg-gradient-to-b from-blue-50 to-white py-20 dark:from-blue-950/20">
-      <div className="container mx-auto max-w-7xl px-4">
-        <div className="mx-auto max-w-3xl text-center">
-          <h1 className="text-foreground mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+    <section className="bg-background relative w-full py-20 md:py-32">
+      {/* Background grid pattern */}
+      <div className="bg-grid absolute inset-0 opacity-30" />
+
+      <div className="relative z-10 container mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-4xl text-center">
+          {/* Badge/Tag */}
+          <div className="border-border bg-background-secondary mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2">
+            <span className="bg-primary h-2 w-2 animate-pulse rounded-full" />
+            <span className="text-text-dim text-xs font-medium tracking-wider uppercase">Професійний ремонт</span>
+          </div>
+
+          <h1 className="font-heading text-foreground mb-6 text-4xl font-medium tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
             Якісний ремонт квартир{' '}
-            <span className="bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">під ключ</span>
+            <span className="from-primary to-primary-hover bg-gradient-to-r bg-clip-text text-transparent">
+              під ключ
+            </span>
           </h1>
-          <p className="text-foreground/70 mb-8 text-lg sm:text-xl">
+
+          <p className="text-text-muted mx-auto mb-8 max-w-2xl text-lg sm:text-xl">
             Професійний досвід, індивідуальний підхід та гарантія якості. Перетворюємо ваші квартири на комфортні
             простори для життя.
           </p>
+
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <a
               href={`tel:${CONTACT_INFO.PHONE.NUMBER}`}
-              className="rounded-lg bg-blue-600 px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-blue-700"
+              className="btn-primary inline-flex items-center justify-center"
             >
               Замовити дзвінок
             </a>
             <Link
               href={PATH.PORTFOLIO}
-              className="rounded-lg border-2 border-blue-600 px-8 py-3 text-base font-semibold text-blue-600 transition-colors hover:bg-blue-50 dark:hover:bg-blue-950/20"
+              className="border-foreground text-foreground hover:bg-foreground hover:text-background inline-flex items-center justify-center border bg-transparent px-8 py-4 text-base font-medium transition-all"
             >
               Дивитись роботи
             </Link>
@@ -32,23 +53,10 @@ export default function Hero() {
         </div>
 
         {/* Benefits */}
-        <div className="mt-20 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="text-center">
-            <div className="mb-3 text-4xl font-bold text-blue-600">10+</div>
-            <div className="text-foreground text-sm font-medium">Років досвіду</div>
-          </div>
-          <div className="text-center">
-            <div className="mb-3 text-4xl font-bold text-blue-600">200+</div>
-            <div className="text-foreground text-sm font-medium">Завершених проєктів</div>
-          </div>
-          <div className="text-center">
-            <div className="mb-3 text-4xl font-bold text-blue-600">100%</div>
-            <div className="text-foreground text-sm font-medium">Задоволених клієнтів</div>
-          </div>
-          <div className="text-center">
-            <div className="mb-3 text-4xl font-bold text-blue-600">24/7</div>
-            <div className="text-foreground text-sm font-medium">Підтримка зв'язку</div>
-          </div>
+        <div className="mt-24 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {benefits.map((benefit, index) => (
+            <BenefitCard key={index} value={benefit.value} label={benefit.label} />
+          ))}
         </div>
       </div>
     </section>

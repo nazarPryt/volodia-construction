@@ -4,12 +4,12 @@ import { NAVIGATION } from '@/config/navigation'
 
 export default function Footer() {
   return (
-    <footer className="bg-background w-full border-t">
-      <div className="container mx-auto max-w-7xl px-4 py-12">
+    <footer className="border-border bg-background w-full border-t">
+      <div className="container mx-auto max-w-7xl px-4 py-12 md:py-16">
         <div className="grid gap-8 md:grid-cols-3">
           {/* Company Info */}
           <div>
-            <h3 className="mb-4 text-lg font-semibold">Ремонт Квартир</h3>
+            <h3 className="font-heading mb-4 text-lg font-medium">Volodia</h3>
             <p className="text-text-muted text-sm">
               Професійний ремонт квартир у Тернополі. Якість, надійність, пунктуальність.
             </p>
@@ -17,11 +17,11 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="mb-4 text-lg font-semibold">Навігація</h3>
+            <h3 className="font-heading mb-4 text-lg font-medium">Навігація</h3>
             <ul className="space-y-2 text-sm">
               {NAVIGATION.filter(item => item.name !== 'Головна').map(item => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-text-dim hover:text-foreground transition-colors">
+                  <Link href={item.href} className="text-text-muted hover:text-foreground transition-colors">
                     {item.name}
                   </Link>
                 </li>
@@ -31,18 +31,21 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="mb-4 text-lg font-semibold">Контакти</h3>
+            <h3 className="font-heading mb-4 text-lg font-medium">Контакти</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <a
                   href={`tel:${CONTACT_INFO.PHONE.NUMBER}`}
-                  className="text-text-dim hover:text-primary transition-colors"
+                  className="text-text-muted hover:text-primary transition-colors"
                 >
                   {CONTACT_INFO.PHONE.DISPLAY}
                 </a>
               </li>
               <li>
-                <a href={`mailto:${CONTACT_INFO.EMAIL}`} className="text-text-dim hover:text-primary transition-colors">
+                <a
+                  href={`mailto:${CONTACT_INFO.EMAIL}`}
+                  className="text-text-muted hover:text-primary transition-colors"
+                >
                   {CONTACT_INFO.EMAIL}
                 </a>
               </li>
@@ -51,13 +54,13 @@ export default function Footer() {
                   href={`https://t.me/${CONTACT_INFO.SOCIAL.TELEGRAM}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-text-dim hover:text-primary transition-colors"
+                  className="text-text-muted hover:text-primary transition-colors"
                 >
                   Telegram
                 </a>
                 <a
                   href={`viber://chat?number=${CONTACT_INFO.SOCIAL.VIBER}`}
-                  className="text-text-dim hover:text-primary transition-colors"
+                  className="text-text-muted hover:text-primary transition-colors"
                 >
                   Viber
                 </a>
@@ -65,7 +68,7 @@ export default function Footer() {
                   href={`https://wa.me/${CONTACT_INFO.SOCIAL.WHATSAPP}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-text-dim hover:text-primary transition-colors"
+                  className="text-text-muted hover:text-primary transition-colors"
                 >
                   WhatsApp
                 </a>
@@ -74,7 +77,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="text-text-muted mt-8 border-t pt-8 text-center text-sm">
+        <div className="border-border text-text-muted mt-8 border-t pt-8 text-center text-sm">
           <p>&copy; {new Date().getFullYear()} Ремонт Квартір. Всі права захищено.</p>
           <p className="text-text-dim mt-2 text-xs">
             Зроблено з ❤️{' '}

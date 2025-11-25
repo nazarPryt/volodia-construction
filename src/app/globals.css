@@ -1,87 +1,116 @@
 @import 'tailwindcss';
 
 :root {
-  /* Light theme colors */
-  --background: #ffffff;
-  --background-dark: #f1f5f9;
-  --background-card: #f8fafc;
-  --background-icon: #e0e7ff;
+  /* Moon.ai inspired design system */
 
-  /* Primary colors */
-  --primary: #4f46e5;
-  --primary-hover: #4338ca;
-  --primary-dark: #3730a3;
+  /* Background colors */
+  --background: #000000;
+  --background-secondary: rgba(255, 255, 255, 0.05);
+  --background-card: rgba(255, 255, 255, 0.03);
+  --background-hover: rgba(255, 255, 255, 0.08);
+
+  /* Primary brand color - Purple */
+  --primary: #5b22ff;
+  --primary-hover: #7040ff;
+  --primary-dark: #4a1bcc;
 
   /* Text colors */
-  --foreground: #0f172a;
-  --text-muted: #1e293b;
-  --text-dim: #475569;
+  --foreground: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --text-dim: rgba(255, 255, 255, 0.32);
+  --text-heading: #ffffff;
+
+  /* Border colors */
+  --border: rgba(255, 255, 255, 0.12);
+  --border-hover: rgba(255, 255, 255, 0.2);
 
   /* Accent colors */
   --accent-blue: #3b82f6;
   --accent-green: #10b981;
   --accent-red: #ef4444;
 
-  /* Transitions */
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease,
-    border-color 0.3s ease;
+  /* Shadows */
+  --shadow-sm: rgba(0, 0, 0, 0.08) 0px 8px 24px 0px;
+  --shadow-md: rgba(0, 0, 0, 0.15) 0px 0px 50px 0px;
+  --shadow-glow: rgba(255, 255, 255, 0.55) 0px 0px 10px 0px;
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 100px;
 }
 
 .dark {
-  /* Dark theme colors  */
-  --background: #0f172a;
-  --background-dark: #020617;
-  --background-card: #1e293b;
-  --background-icon: #334155;
+  /* Dark theme is default */
+  --background: #000000;
+  --background-secondary: rgba(255, 255, 255, 0.05);
+  --background-card: rgba(255, 255, 255, 0.03);
+  --background-hover: rgba(255, 255, 255, 0.08);
 
-  /* Primary colors  */
-  --primary: #818cf8;
-  --primary-hover: #a5b4fc;
-  --primary-dark: #6366f1;
+  --primary: #5b22ff;
+  --primary-hover: #7040ff;
+  --primary-dark: #4a1bcc;
 
-  /* Text colors  */
-  --foreground: #f1f5f9;
-  --text-muted: #cbd5e1;
-  --text-dim: #94a3b8;
-
-  /* Accent colors remain the same */
-  --accent-blue: #60a5fa;
-  --accent-green: #34d399;
-  --accent-red: #f87171;
+  --foreground: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --text-dim: rgba(255, 255, 255, 0.32);
 }
 
 @theme inline {
-  /* Background */
+  /* Background colors */
   --color-background: var(--background);
-  --color-background-dark: var(--background-dark);
+  --color-background-secondary: var(--background-secondary);
   --color-background-card: var(--background-card);
-  --color-background-icon: var(--background-icon);
+  --color-background-hover: var(--background-hover);
 
-  /* Primary */
+  /* Primary colors */
   --color-primary: var(--primary);
   --color-primary-hover: var(--primary-hover);
   --color-primary-dark: var(--primary-dark);
 
-  /* Text */
+  /* Text colors */
   --color-foreground: var(--foreground);
   --color-text-muted: var(--text-muted);
   --color-text-dim: var(--text-dim);
+  --color-text-heading: var(--text-heading);
 
-  /* Accents */
+  /* Border colors */
+  --color-border: var(--border);
+  --color-border-hover: var(--border-hover);
+
+  /* Accent colors */
   --color-accent-blue: var(--accent-blue);
   --color-accent-green: var(--accent-green);
   --color-accent-red: var(--accent-red);
 
-  /* Fonts */
+  /* Typography - Monospace for headings (Fragment Mono style) */
+  --font-heading: 'Courier New', 'Courier', monospace;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
+  /* Font sizes - Moon.ai scale */
+  --text-xs: 0.8125rem; /* 13px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-base: 1rem; /* 16px */
+  --text-lg: 1.125rem; /* 18px */
+  --text-xl: 1.5rem; /* 24px */
+  --text-2xl: 2rem; /* 32px */
+  --text-3xl: 3rem; /* 48px */
+  --text-4xl: 4.5rem; /* 72px */
+
   /* Border radius */
-  --radius-card: 1rem;
-  --radius-button: 0.5rem;
-  --radius-icon: 0.75rem;
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-full: var(--radius-full);
+
+  /* Shadows */
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-glow: var(--shadow-glow);
 
   /* Spacing */
   --spacing-section: 5rem;
@@ -91,21 +120,102 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    'Chivo',
+    var(--font-geist-sans),
+    -apple-system,
+    sans-serif;
   overflow-x: hidden;
+  line-height: 1.5;
 }
 
-/* Smooth theme transitions for key elements only */
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  color: var(--text-heading);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem); /* Responsive 72px */
+  line-height: 1.15;
+  letter-spacing: -0.027em; /* -1.944px at 72px */
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem); /* Responsive 48px */
+  line-height: 1.15;
+  letter-spacing: -0.027em; /* -1.296px at 48px */
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem); /* Responsive 32px */
+  line-height: 1.5;
+  letter-spacing: -0.027em; /* -0.864px at 32px */
+}
+
+h4 {
+  font-size: 0.8125rem; /* 13px */
+  line-height: 1.2;
+  letter-spacing: 0.054em; /* 0.7px */
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+h5 {
+  font-size: 1rem; /* 16px */
+  line-height: 1.25;
+  letter-spacing: -0.015em; /* -0.24px */
+}
+
+p {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.5;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* Button styles - Moon.ai inspired */
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--foreground);
+  padding: 0.9rem 1.625rem; /* 14.4px 26px */
+  border: 1px solid var(--foreground);
+  border-radius: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Background grid pattern */
+.bg-grid {
+  background-image: url('/grid.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Smooth theme transitions */
 body,
 header,
 nav,
 main,
 footer,
-section,
-[class*='bg-'],
-[class*='text-'] {
+section {
   transition:
-    background-color 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease;
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
 }

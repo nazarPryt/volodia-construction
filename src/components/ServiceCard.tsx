@@ -1,29 +1,53 @@
 import Link from 'next/link'
 
 interface ServiceCardProps {
+  icon: string
   title: string
   description: string
-  icon?: string
+  details?: string[]
+  price?: string
   link?: string
 }
 
-export default function ServiceCard({ title, description, icon = '🔧', link }: ServiceCardProps) {
+export default function ServiceCard({ icon, title, description, details, price, link }: ServiceCardProps) {
   const content = (
-    <div className="group bg-card h-full rounded-lg border p-6 transition-all hover:border-blue-500 hover:shadow-lg">
-      <div className="mb-4 text-4xl">{icon}</div>
-      <h3 className="text-foreground mb-2 text-xl font-semibold">{title}</h3>
-      <p className="text-foreground/70 text-sm">{description}</p>
-      {link && (
-        <div className="mt-4 text-sm font-medium text-blue-600 transition-colors group-hover:text-blue-700">
-          Детальніше →
+    <>
+      <div className="mb-4 flex items-start justify-between">
+        <div className="text-5xl">{icon}</div>
+        {price && <div className="bg-primary text-foreground rounded-lg px-4 py-2 text-sm font-semibold">{price}</div>}
+      </div>
+      <h3 className="font-heading text-foreground mb-3 text-2xl font-medium">{title}</h3>
+      <p className="text-text-muted mb-4">{description}</p>
+      {details && details.length > 0 && (
+        <div className="mb-4">
+          <h4 className="text-foreground mb-2 font-semibold">Що входить:</h4>
+          <ul className="text-text-muted space-y-1 text-sm">
+            {details.map((detail, idx) => (
+              <li key={idx} className="flex items-start">
+                <span className="text-primary mr-2">✓</span>
+                {detail}
+              </li>
+            ))}
+          </ul>
         </div>
       )}
-    </div>
+    </>
   )
 
   if (link) {
-    return <Link href={link}>{content}</Link>
+    return (
+      <Link
+        href={link}
+        className="group border-border bg-background-card hover:border-border-hover hover:bg-background-hover block rounded-lg border p-6 transition-all"
+      >
+        {content}
+      </Link>
+    )
   }
 
-  return content
+  return (
+    <div className="group border-border bg-background-card hover:border-border-hover hover:bg-background-hover rounded-lg border p-6 transition-all">
+      {content}
+    </div>
+  )
 }

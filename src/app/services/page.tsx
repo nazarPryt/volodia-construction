@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { PATH } from '@/config/PATH'
 import { CONTACT_INFO } from '@/config/contacts'
 import { PAGE_METADATA } from '@/config/metadata'
+import PageHeader from '@/components/PageHeader'
+import ServiceCard from '@/components/ServiceCard'
 
 export const metadata: Metadata = PAGE_METADATA.services
 
@@ -27,7 +29,7 @@ const services = [
     icon: '🎨',
     title: 'Косметичний ремонт',
     description:
-      "Швидке та якісне оновлення інтер'єру без масштабних будівельних робіт. Зміна оздоблення стін, стелі, підлоги.",
+      'Швидке та якісне оновлення інтерєру без масштабних будівельних робіт. Зміна оздоблення стін, стелі, підлоги.',
     details: [
       'Фарбування стін та стелі',
       'Поклейка шпалер',
@@ -98,7 +100,7 @@ const services = [
   {
     icon: '🚪',
     title: 'Столярні роботи',
-    description: "Установка дверей, монтаж плінтусів, створення ніш, полиць та інших дерев'яних конструкцій.",
+    description: 'Установка дверей, монтаж плінтусів, створення ніш, полиць та інших деревяних конструкцій.',
     details: [
       'Установка міжкімнатних дверей',
       'Установка вхідних дверей',
@@ -141,67 +143,43 @@ const services = [
 export default function ServicesPage() {
   return (
     <>
-      <section className="dark:to-background w-full bg-gradient-to-b from-blue-50 to-white py-16 dark:from-blue-950/20">
-        <div className="container mx-auto max-w-7xl px-4">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-foreground mb-4 text-4xl font-bold sm:text-5xl">Наші послуги</h1>
-            <p className="text-foreground/70 text-lg">
-              Виконуємо повний спектр ремонтних робіт для квартир будь-якої складності. Гарантуємо якість, дотримання
-              термінів та прозорість цін.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        title="Наші послуги"
+        description="Виконуємо повний спектр ремонтних робіт для квартир будь-якої складності. Гарантуємо якість, дотримання термінів та прозорість цін."
+      />
 
       <section className="bg-background w-full py-16">
         <div className="container mx-auto max-w-7xl px-4">
           <div className="grid gap-8 lg:grid-cols-2">
             {services.map((service, index) => (
-              <div key={index} className="bg-card rounded-lg border p-6 transition-shadow hover:shadow-lg">
-                <div className="mb-4 flex items-start justify-between">
-                  <div className="text-5xl">{service.icon}</div>
-                  <div className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white">
-                    {service.price}
-                  </div>
-                </div>
-                <h3 className="text-foreground mb-3 text-2xl font-bold">{service.title}</h3>
-                <p className="text-foreground/70 mb-4">{service.description}</p>
-                <div className="mb-4">
-                  <h4 className="text-foreground mb-2 font-semibold">Що входить:</h4>
-                  <ul className="text-foreground/70 space-y-1 text-sm">
-                    {service.details.map((detail, idx) => (
-                      <li key={idx} className="flex items-start">
-                        <span className="mr-2 text-blue-600">✓</span>
-                        {detail}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+              <ServiceCard key={index} {...service} />
             ))}
           </div>
         </div>
       </section>
 
       {/* Price Note */}
-      <section className="w-full bg-blue-50 py-12 dark:bg-blue-950/20">
-        <div className="container mx-auto max-w-7xl px-4">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-foreground mb-4 text-2xl font-bold">Індивідуальний розрахунок вартості</h2>
-            <p className="text-foreground/70 mb-6">
+      <section className="relative w-full py-12">
+        <div className="bg-grid absolute inset-0 opacity-20" />
+        <div className="relative z-10 container mx-auto max-w-7xl px-4">
+          <div className="border-border bg-background-card mx-auto max-w-3xl rounded-lg border p-8 text-center">
+            <h2 className="font-heading text-foreground mb-4 text-2xl font-medium">
+              Індивідуальний розрахунок вартості
+            </h2>
+            <p className="text-text-muted mb-6">
               Вказані ціни є орієнтовними. Точна вартість залежить від обсягу робіт, обраних матеріалів та складності
-              проєкту. Зателефонуйте нам для безкоштовної консультації та виїзду на об'єкт.
+              проєкту. Зателефонуйте нам для безкоштовної консультації та виїзду на обєкт.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <a
                 href={`tel:${CONTACT_INFO.PHONE.NUMBER}`}
-                className="rounded-lg bg-blue-600 px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-blue-700"
+                className="btn-primary inline-flex items-center justify-center"
               >
                 Замовити розрахунок
               </a>
               <Link
                 href={PATH.CONTACT}
-                className="rounded-lg border-2 border-blue-600 px-8 py-3 text-base font-semibold text-blue-600 transition-colors hover:bg-blue-50 dark:hover:bg-blue-950/20"
+                className="border-foreground text-foreground hover:bg-foreground hover:text-background inline-flex items-center justify-center border bg-transparent px-8 py-4 text-base font-medium transition-all"
               >
                 Написати нам
               </Link>
