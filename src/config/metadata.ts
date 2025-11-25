@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 
 // Base site information
 export const SITE_CONFIG = {
-  name: 'Ремонт Квартир Тернопіль',
+  name: 'Ремонт Квартір Тернопіль',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://yoursite.com',
   locale: 'uk_UA',
   defaultImage: '/og-image.svg',
@@ -10,12 +10,13 @@ export const SITE_CONFIG = {
   defaultImageHeight: 630,
 } as const
 
-// Common metadata templates
-export const BASE_METADATA = {
+// Base metadata configuration
+export const BASE_METADATA: Metadata = {
+  metadataBase: new URL(SITE_CONFIG.url),
   title: 'Ремонт Квартир | Професійний майстер у Тернополі',
   description:
     'Якісний ремонт квартир під ключ у Тернополі. Косметичний та капітальний ремонт. Досвідчений майстер, доступні ціни.',
-} as const
+}
 
 // Generate Open Graph metadata with optional overrides
 interface OpenGraphConfig {
@@ -71,8 +72,8 @@ export function generateMetadata(config: {
 // Pre-configured metadata for each page
 export const PAGE_METADATA = {
   home: generateMetadata({
-    title: BASE_METADATA.title,
-    description: BASE_METADATA.description,
+    title: BASE_METADATA.title as string,
+    description: BASE_METADATA.description as string,
     openGraph: {
       description:
         'Якісний ремонт квартир під ключ у Тернополі. Косметичний та капітальний ремонт. Понад 10 років досвіду, 200+ завершених проєктів.',
@@ -80,7 +81,7 @@ export const PAGE_METADATA = {
   }),
 
   about: generateMetadata({
-    title: 'Про майстра | Ремонт Квартир',
+    title: 'Про нас | Ремонт Квартир',
     description:
       'Досвідчений майстер з ремонту квартир. Більше 10 років досвіду, понад 200 успішно завершених проєктів.',
     openGraph: {

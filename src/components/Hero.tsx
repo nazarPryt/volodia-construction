@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { PATH } from '@/config/PATH'
 import { CONTACT_INFO } from '@/config/contacts'
 import BenefitCard from '@/components/BenefitCard'
+import GradientMesh from '@/components/GradientMesh'
 
 const benefits = [
   { value: '10+', label: 'Років досвіду' },
@@ -12,7 +13,10 @@ const benefits = [
 
 export default function Hero() {
   return (
-    <section className="bg-background relative w-full py-20 md:py-32">
+    <section className="bg-background relative w-full overflow-hidden py-20 md:py-32">
+      {/* Gradient mesh background */}
+      <GradientMesh variant="purple" opacity={0.15} />
+
       {/* Background grid pattern */}
       <div className="bg-grid absolute inset-0 opacity-30" />
 

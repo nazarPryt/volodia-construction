@@ -1,18 +1,79 @@
 import Hero from '@/components/Hero'
 import ServiceCard from '@/components/ServiceCard'
+import FeatureCard from '@/components/FeatureCard'
 import CallButton from '@/components/CallButton'
+import GradientMesh from '@/components/GradientMesh'
 import Link from 'next/link'
 import { PATH } from '@/config/PATH'
 import { CONTACT_INFO } from '@/config/contacts'
+import { useLog } from '@/shared/log'
+
+const services = [
+  {
+    icon: '🏠',
+    title: 'Ремонт під ключ',
+    description: 'Повний цикл робіт від демонтажу до фінішного оздоблення. Ідеально для нових квартир.',
+  },
+  {
+    icon: '🎨',
+    title: 'Косметичний ремонт',
+    description: "Швидке оновлення інтер'єру: фарбування, шпалери, підлоги та інші оздоблювальні роботи.",
+  },
+  {
+    icon: '🔨',
+    title: 'Капітальний ремонт',
+    description: 'Повна реконструкція приміщення з заміною комунікацій та перепланування.',
+  },
+  {
+    icon: '⚡',
+    title: 'Електрика',
+    description: 'Монтаж проводки, установка розеток, світильників та електричних щитів.',
+  },
+  {
+    icon: '🚿',
+    title: 'Сантехніка',
+    description: 'Заміна труб, установка сантехнічного обладнання, підключення приладів.',
+  },
+  {
+    icon: '◼️',
+    title: 'Плиткові роботи',
+    description: 'Укладання керамічної плитки, керамограніту, мозаїки в кухнях та ванних.',
+  },
+]
+
+const features = [
+  {
+    icon: '✅',
+    title: 'Гарантія якості',
+    description: 'Надаємо гарантію на всі види робіт. Використовуємо тільки перевірені матеріали.',
+  },
+  {
+    icon: '⏱️',
+    title: 'Дотримання термінів',
+    description: 'Складаємо чіткий графік робіт та строго його дотримуємось без затримок.',
+  },
+  {
+    icon: '💰',
+    title: 'Прозора ціна',
+    description: 'Фіксована вартість після оцінки. Без прихованих платежів та доплат.',
+  },
+  {
+    icon: '🤝',
+    title: 'Індивідуальний підхід',
+    description: 'Враховуємо всі побажання клієнта та пропонуємо оптимальні рішення.',
+  },
+]
 
 export default function Home() {
+  useLog()
   return (
     <>
       <Hero />
 
       {/* Services Preview */}
-      <section className="bg-background w-full py-16">
-        <div className="container mx-auto max-w-7xl px-4">
+      <section className="bg-background relative w-full overflow-hidden py-16">
+        <GradientMesh variant="blue" opacity={0.1} />
+        <div className="relative z-10 container mx-auto max-w-7xl px-4">
           <div className="mb-12 text-center">
             <h2 className="text-foreground mb-4 text-3xl font-bold">Наші послуги</h2>
             <p className="text-foreground/70">
@@ -21,42 +82,15 @@ export default function Home() {
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <ServiceCard
-              icon="🏠"
-              title="Ремонт під ключ"
-              description="Повний цикл робіт від демонтажу до фінішного оздоблення. Ідеально для нових квартир."
-              link={PATH.SERVICES}
-            />
-            <ServiceCard
-              icon="🎨"
-              title="Косметичний ремонт"
-              description="Швидке оновлення інтер'єру: фарбування, шпалери, підлоги та інші оздоблювальні роботи."
-              link={PATH.SERVICES}
-            />
-            <ServiceCard
-              icon="🔨"
-              title="Капітальний ремонт"
-              description="Повна реконструкція приміщення з заміною комунікацій та перепланування."
-              link={PATH.SERVICES}
-            />
-            <ServiceCard
-              icon="⚡"
-              title="Електрика"
-              description="Монтаж проводки, установка розеток, світильників та електричних щитів."
-              link={PATH.SERVICES}
-            />
-            <ServiceCard
-              icon="🚿"
-              title="Сантехніка"
-              description="Заміна труб, установка сантехнічного обладнання, підключення приладів."
-              link={PATH.SERVICES}
-            />
-            <ServiceCard
-              icon="◼️"
-              title="Плиткові роботи"
-              description="Укладання керамічної плитки, керамограніту, мозаїки в кухнях та ванних."
-              link={PATH.SERVICES}
-            />
+            {services.map((service, index) => (
+              <ServiceCard
+                key={index}
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+                link={PATH.SERVICES}
+              />
+            ))}
           </div>
 
           <div className="mt-10 text-center">
@@ -107,41 +141,17 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="bg-background w-full py-16">
-        <div className="container mx-auto max-w-7xl px-4">
+      <section className="bg-background relative w-full overflow-hidden py-16">
+        <GradientMesh variant="orange" opacity={0.09} />
+        <div className="relative z-10 container mx-auto max-w-7xl px-4">
           <div className="mb-12 text-center">
             <h2 className="text-foreground mb-4 text-3xl font-bold">Чому обирають нас</h2>
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="text-center">
-              <div className="mb-4 text-5xl">✅</div>
-              <h3 className="text-foreground mb-2 text-lg font-semibold">Гарантія якості</h3>
-              <p className="text-foreground/70 text-sm">
-                Надаємо гарантію на всі види робіт. Використовуємо тільки перевірені матеріали.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="mb-4 text-5xl">⏱️</div>
-              <h3 className="text-foreground mb-2 text-lg font-semibold">Дотримання термінів</h3>
-              <p className="text-foreground/70 text-sm">
-                Складаємо чіткий графік робіт та строго його дотримуємось без затримок.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="mb-4 text-5xl">💰</div>
-              <h3 className="text-foreground mb-2 text-lg font-semibold">Прозора ціна</h3>
-              <p className="text-foreground/70 text-sm">
-                Фіксована вартість після оцінки. Без прихованих платежів та доплат.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="mb-4 text-5xl">🤝</div>
-              <h3 className="text-foreground mb-2 text-lg font-semibold">Індивідуальний підхід</h3>
-              <p className="text-foreground/70 text-sm">
-                Враховуємо всі побажання клієнта та пропонуємо оптимальні рішення.
-              </p>
-            </div>
+            {features.map((feature, index) => (
+              <FeatureCard key={index} icon={feature.icon} title={feature.title} description={feature.description} />
+            ))}
           </div>
         </div>
       </section>

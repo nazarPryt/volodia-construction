@@ -4,7 +4,7 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { ThemeProvider } from '@/components/ThemeProvider'
-import { PAGE_METADATA } from '@/config/metadata'
+import { BASE_METADATA, PAGE_METADATA } from '@/config/metadata'
 import { ReactNode } from 'react'
 
 const geistSans = Geist({
@@ -17,7 +17,10 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 })
 
-export const metadata: Metadata = PAGE_METADATA.home
+export const metadata: Metadata = {
+  ...BASE_METADATA,
+  ...PAGE_METADATA.home,
+}
 
 export default function RootLayout({
   children,
