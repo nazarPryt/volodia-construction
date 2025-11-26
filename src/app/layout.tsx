@@ -6,6 +6,7 @@ import Footer from '@/components/Footer'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import { BASE_METADATA, PAGE_METADATA } from '@/config/metadata'
 import { ReactNode } from 'react'
+import AOSInit from '@/shared/AOSInit'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -31,6 +32,7 @@ export default function RootLayout({
     <html lang="uk" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider>
+          <AOSInit />
           <Header />
           <main className="min-h-screen">{children}</main>
           <Footer />
