@@ -7,7 +7,7 @@ interface PrincipleItemProps {
 export default function PrincipleItem({ number, title, description }: PrincipleItemProps) {
   return (
     <div className="flex gap-4">
-      <div className="bg-primary text-foreground flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xl">
+      <div className="bg-primary flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xl text-white">
         {number}
       </div>
       <div>

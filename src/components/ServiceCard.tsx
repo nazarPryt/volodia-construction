@@ -14,7 +14,7 @@ export default function ServiceCard({ icon, title, description, details, price, 
     <>
       <div className="mb-4 flex items-start justify-between">
         <div className="text-5xl">{icon}</div>
-        {price && <div className="bg-primary text-foreground rounded-lg px-4 py-2 text-sm font-semibold">{price}</div>}
+        {price && <div className="bg-primary rounded-lg px-4 py-2 text-sm font-semibold text-white">{price}</div>}
       </div>
       <h3 className="font-heading text-foreground mb-3 text-2xl font-medium">{title}</h3>
       <p className="text-text-muted mb-4">{description}</p>
