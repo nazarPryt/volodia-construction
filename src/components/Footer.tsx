@@ -1,11 +1,23 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { CONTACT_INFO } from '@/config/contacts'
 import { NAVIGATION } from '@/config/navigation'
 
 export default function Footer() {
   return (
-    <footer className="border-border bg-background w-full border-t">
-      <div className="container mx-auto max-w-7xl px-4 py-12 md:py-16">
+    <footer className="border-border bg-background relative w-full overflow-hidden border-t">
+      {/* Background image - only visible on light theme */}
+      <div className="absolute inset-0 dark:hidden">
+        <Image
+          src="/bg-2.webp"
+          alt="Background pattern"
+          fill
+          className="object-cover opacity-15"
+          priority={false}
+          quality={75}
+        />
+      </div>
+      <div className="relative z-10 container mx-auto max-w-7xl px-4 py-12 md:py-16">
         <div className="grid gap-8 md:grid-cols-3">
           {/* Company Info */}
           <div>

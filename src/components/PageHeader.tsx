@@ -1,17 +1,11 @@
-import GradientMesh from '@/components/GradientMesh'
-
 interface PageHeaderProps {
   title: string
   description: string
-  gradientVariant?: 'purple' | 'blue' | 'green' | 'orange'
 }
 
-export default function PageHeader({ title, description, gradientVariant = 'blue' }: PageHeaderProps) {
+export default function PageHeader({ title, description }: PageHeaderProps) {
   return (
     <section className="bg-background relative w-full overflow-hidden py-16">
-      {/* Gradient mesh background */}
-      <GradientMesh variant={gradientVariant} opacity={0.12} />
-
       <div className="bg-grid absolute inset-0 opacity-20" />
       <div className="relative z-10 container mx-auto max-w-7xl px-4">
         <div className="mx-auto max-w-3xl text-center">

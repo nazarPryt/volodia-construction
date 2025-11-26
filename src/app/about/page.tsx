@@ -127,9 +127,8 @@ export default function AboutPage() {
       {/*</section>*/}
 
       {/* Qualifications */}
-      <section className="relative w-full py-16">
-        <div className="bg-grid absolute inset-0 opacity-20" />
-        <div className="relative z-10 container mx-auto max-w-7xl px-4">
+      <section className="bg-background w-full py-16">
+        <div className="container mx-auto max-w-7xl px-4">
           <h2 className="font-heading text-foreground mb-12 text-center text-3xl font-medium">
             Кваліфікація та навички
           </h2>
@@ -154,22 +153,22 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="from-primary to-primary-hover relative w-full bg-gradient-to-r py-16">
+      <section className="relative w-full bg-gradient-to-r from-blue-600 to-blue-700 py-16">
         <div className="container mx-auto max-w-7xl px-4 text-center">
-          <h2 className="font-heading text-foreground mb-4 text-3xl font-medium">Готові почати співпрацю?</h2>
-          <p className="text-foreground/90 mb-8 text-lg">
+          <h2 className="mb-4 text-3xl font-bold text-white">Готові почати співпрацю?</h2>
+          <p className="mb-8 text-lg text-white/90">
             Зателефонуйте мені, щоб обговорити ваш проєкт. Безкоштовно виїду на об'єкт для оцінки та консультації.
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <a
               href={`tel:${CONTACT_INFO.PHONE.NUMBER}`}
-              className="border-foreground bg-foreground text-background hover:bg-background hover:text-foreground inline-flex items-center justify-center rounded-lg border px-8 py-3 text-base font-semibold transition-colors"
+              className="inline-flex items-center justify-center rounded-lg border border-white bg-white px-8 py-3 text-base font-semibold text-blue-600 transition-colors hover:bg-gray-100"
             >
               📞 Зателефонувати
             </a>
             <Link
               href={PATH.PORTFOLIO}
-              className="border-foreground text-foreground hover:bg-foreground/10 inline-flex items-center justify-center rounded-lg border-2 bg-transparent px-8 py-3 text-base font-semibold transition-colors"
+              className="inline-flex items-center justify-center rounded-lg border-2 border-white bg-transparent px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-white/10"
             >
               Переглянути роботи
             </Link>

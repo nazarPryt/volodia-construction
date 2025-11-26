@@ -57,8 +57,10 @@ export default function Header() {
               <li key={item.name}>
                 <Link
                   href={item.href}
-                  className={`hover:text-foreground text-sm font-medium transition-colors ${
-                    pathname === item.href ? 'text-foreground' : 'text-text-muted'
+                  className={`relative text-sm font-medium transition-colors ${
+                    pathname === item.href
+                      ? 'text-primary after:bg-primary font-semibold after:absolute after:bottom-[-8px] after:left-0 after:h-0.5 after:w-full'
+                      : 'text-text-muted hover:text-foreground'
                   }`}
                 >
                   {item.name}

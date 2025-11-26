@@ -2,7 +2,6 @@ import Hero from '@/components/Hero'
 import ServiceCard from '@/components/ServiceCard'
 import FeatureCard from '@/components/FeatureCard'
 import CallButton from '@/components/CallButton'
-import GradientMesh from '@/components/GradientMesh'
 import Link from 'next/link'
 import { PATH } from '@/config/PATH'
 import { CONTACT_INFO } from '@/config/contacts'
@@ -72,7 +71,6 @@ export default function Home() {
 
       {/* Services Preview */}
       <section className="bg-background relative w-full overflow-hidden py-16">
-        <GradientMesh variant="blue" opacity={0.1} />
         <div className="relative z-10 container mx-auto max-w-7xl px-4">
           <div className="mb-12 text-center">
             <h2 className="text-foreground mb-4 text-3xl font-bold">Наші послуги</h2>
@@ -105,11 +103,11 @@ export default function Home() {
       </section>
 
       {/* Portfolio Preview */}
-      <section className="dark:from-background w-full bg-gradient-to-b from-white to-blue-50 py-16 dark:to-blue-950/20">
+      <section className="bg-background w-full py-16">
         <div className="container mx-auto max-w-7xl px-4">
           <div className="mb-12 text-center">
             <h2 className="text-foreground mb-4 text-3xl font-bold">Наші роботи</h2>
-            <p className="text-foreground/70">Переглядайте приклади виконаних проєктів</p>
+            <p className="text-text-muted">Переглядайте приклади виконаних проєктів</p>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -130,10 +128,7 @@ export default function Home() {
           </div>
 
           <div className="mt-10 text-center">
-            <Link
-              href={PATH.PORTFOLIO}
-              className="inline-block rounded-lg bg-blue-600 px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-blue-700"
-            >
+            <Link href={PATH.PORTFOLIO} className="btn-primary inline-block">
               Дивитись всі роботи
             </Link>
           </div>
@@ -142,7 +137,6 @@ export default function Home() {
 
       {/* Why Choose Us */}
       <section className="bg-background relative w-full overflow-hidden py-16">
-        <GradientMesh variant="orange" opacity={0.09} />
         <div className="relative z-10 container mx-auto max-w-7xl px-4">
           <div className="mb-12 text-center">
             <h2 className="text-foreground mb-4 text-3xl font-bold">Чому обирають нас</h2>

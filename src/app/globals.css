@@ -1,39 +1,39 @@
 @import 'tailwindcss';
 
 :root {
-  /* Light theme - Default */
+  /* Light theme - Dark, Gold, White accents */
 
   /* Background colors */
   --background: #ffffff;
-  --background-secondary: rgba(0, 0, 0, 0.05);
-  --background-card: rgba(0, 0, 0, 0.03);
-  --background-hover: rgba(0, 0, 0, 0.08);
+  --background-secondary: rgba(0, 0, 0, 0.04);
+  --background-card: #f5f3ed;
+  --background-hover: #ebe8df;
 
-  /* Primary brand color - Purple */
-  --primary: #5b22ff;
-  --primary-hover: #7040ff;
-  --primary-dark: #4a1bcc;
+  /* Primary brand color - Gold */
+  --primary: #d4af37;
+  --primary-hover: #e6c55f;
+  --primary-dark: #b8941f;
 
-  /* Text colors - Higher contrast for readability */
-  --foreground: #0a0a0a;
-  --text-muted: rgba(0, 0, 0, 0.75);
-  --text-dim: rgba(0, 0, 0, 0.55);
+  /* Text colors - Dark accents */
+  --foreground: #1a1a1a;
+  --text-muted: rgba(0, 0, 0, 0.7);
+  --text-dim: rgba(0, 0, 0, 0.5);
   --text-heading: #000000;
-  --text-on-primary: #ffffff;
+  --text-on-primary: #000000;
 
   /* Border colors */
-  --border: rgba(0, 0, 0, 0.15);
-  --border-hover: rgba(0, 0, 0, 0.25);
+  --border: rgba(212, 175, 55, 0.2);
+  --border-hover: rgba(212, 175, 55, 0.4);
 
-  /* Accent colors */
-  --accent-blue: #3b82f6;
-  --accent-green: #10b981;
-  --accent-red: #ef4444;
+  /* Accent colors - Gold variants */
+  --accent-blue: #d4af37;
+  --accent-green: #c9a961;
+  --accent-red: #b8941f;
 
   /* Shadows */
   --shadow-sm: rgba(0, 0, 0, 0.08) 0px 8px 24px 0px;
-  --shadow-md: rgba(0, 0, 0, 0.15) 0px 0px 50px 0px;
-  --shadow-glow: rgba(91, 34, 255, 0.35) 0px 0px 10px 0px;
+  --shadow-md: rgba(0, 0, 0, 0.12) 0px 0px 50px 0px;
+  --shadow-glow: rgba(212, 175, 55, 0.4) 0px 0px 15px 0px;
 
   /* Border radius */
   --radius-sm: 4px;
@@ -207,12 +207,16 @@ p {
   box-shadow: var(--shadow-glow);
 }
 
-/* Background grid pattern */
+/* Background grid pattern - theme specific */
 .bg-grid {
-  background-image: url('/grid.webp');
+  background-image: url('/bg-2.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.dark .bg-grid {
+  background-image: url('/grid.webp');
 }
 
 /* Smooth theme transitions */
