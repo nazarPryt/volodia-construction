@@ -10,6 +10,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "pnpm run lint && pnpm run format:check",
+    "pre-commit": "pnpm run lint && pnpm run format",
     "prepare": "husky"
   },
   "dependencies": {

@@ -142,8 +142,8 @@ export default function PortfolioPage() {
       {/* CTA Section */}
       <section className="w-full bg-gradient-to-r from-blue-600 to-blue-700 py-16">
         <div className="container mx-auto max-w-7xl px-4 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-white">Хочете побачити більше прикладів?</h2>
-          <p className="mb-8 text-lg text-white/90">
+          <h2 className="mb-4 text-3xl font-bold !text-white">Хочете побачити більше прикладів?</h2>
+          <p className="mb-8 text-lg !text-white/90">
             Зателефонуйте нам, і ми надішлемо додаткові фото та відео наших робіт
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">

@@ -1,5 +1,4 @@
 import { Metadata } from 'next'
-import Image from 'next/image'
 import ContactForm from '@/components/ContactForm'
 import CallButton from '@/components/CallButton'
 import { CONTACT_INFO } from '@/config/contacts'
@@ -21,19 +20,8 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="bg-background relative w-full overflow-hidden py-16">
-        {/* Background image */}
-        <div className="absolute inset-0">
-          <Image
-            src="/bg-1.webp"
-            alt="Background"
-            fill
-            className="object-cover opacity-5"
-            priority={false}
-            quality={75}
-          />
-        </div>
-        <div className="relative z-10 container mx-auto max-w-7xl px-4">
+      <section className="bg-background w-full py-16">
+        <div className="container mx-auto max-w-7xl px-4">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             {/* Contact Information */}
             <div>

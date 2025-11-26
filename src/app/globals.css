@@ -211,12 +211,22 @@ p {
 .bg-grid {
   background-image: url('/bg-2.webp');
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .dark .bg-grid {
   background-image: url('/grid.webp');
+}
+
+/* Mobile responsive background */
+@media (max-width: 768px) {
+  .bg-grid {
+    background-size: 200% auto;
+    background-position: center 20%;
+    background-attachment: scroll;
+  }
 }
 
 /* Smooth theme transitions */

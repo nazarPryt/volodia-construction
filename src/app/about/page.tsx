@@ -155,8 +155,8 @@ export default function AboutPage() {
       {/* CTA Section */}
       <section className="relative w-full bg-gradient-to-r from-blue-600 to-blue-700 py-16">
         <div className="container mx-auto max-w-7xl px-4 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-white">Готові почати співпрацю?</h2>
-          <p className="mb-8 text-lg text-white/90">
+          <h2 className="mb-4 text-3xl font-bold !text-white">Готові почати співпрацю?</h2>
+          <p className="mb-8 text-lg !text-white/90">
             Зателефонуйте мені, щоб обговорити ваш проєкт. Безкоштовно виїду на об'єкт для оцінки та консультації.
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
