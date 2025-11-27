@@ -2,20 +2,58 @@ import { Metadata } from 'next'
 
 // Base site information
 export const SITE_CONFIG = {
-  name: 'Ремонт Квартір Тернопіль',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://yoursite.com',
+  name: 'Ремонт Квартир Тернопіль',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
   locale: 'uk_UA',
   defaultImage: '/og-image.svg',
   defaultImageWidth: 1200,
   defaultImageHeight: 630,
 } as const
 
+// SEO Keywords
+export const SEO_KEYWORDS = [
+  'ремонт квартир Тернопіль',
+  'косметичний ремонт',
+  'капітальний ремонт',
+  'ремонт під ключ',
+  'майстер з ремонту',
+  'електрика',
+  'сантехніка',
+  'оздоблювальні роботи',
+  'плиткові роботи',
+  'ремонт квартир ціни',
+]
+
 // Base metadata configuration
 export const BASE_METADATA: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
-  title: 'Ремонт Квартир | Професійний майстер у Тернополі',
+  title: 'Ремонт Квартир | Професійний Майстер у Тернополі',
   description:
     'Якісний ремонт квартир під ключ у Тернополі. Косметичний та капітальний ремонт. Досвідчений майстер, доступні ціни.',
+  keywords: SEO_KEYWORDS,
+  authors: [{ name: 'Володимир Батькович' }],
+  creator: 'Володимир Батькович',
+  publisher: 'Ремонт Квартир Тернопіль',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+  },
+  alternates: {
+    canonical: '/',
+    languages: {
+      'uk-UA': '/',
+    },
+  },
 }
 
 // Generate Open Graph metadata with optional overrides

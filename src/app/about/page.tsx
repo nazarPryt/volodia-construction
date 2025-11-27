@@ -7,6 +7,7 @@ import { PAGE_METADATA } from '@/config/metadata'
 import PageHeader from '@/components/PageHeader'
 import QualificationCard from '@/components/QualificationCard'
 import PrincipleItem from '@/components/PrincipleItem'
+import StructuredData from '@/components/StructuredData'
 
 export const metadata: Metadata = PAGE_METADATA.about
 
@@ -74,6 +75,7 @@ const principles = [
 export default function AboutPage() {
   return (
     <>
+      <StructuredData type="about" />
       <PageHeader title="Про нас" description="Професійний досвід, відповідальний підхід та любов до своєї справи" />
 
       {/*<section className="bg-background w-full py-16">*/}

@@ -7,6 +7,7 @@ import { ThemeProvider } from '@/components/ThemeProvider'
 import { BASE_METADATA, PAGE_METADATA } from '@/config/metadata'
 import { ReactNode } from 'react'
 import AOSInit from '@/shared/AOSInit'
+import StructuredData from '@/components/StructuredData'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -31,6 +32,7 @@ export default function RootLayout({
   return (
     <html lang="uk" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <StructuredData type="home" />
         <ThemeProvider>
           <AOSInit />
           <Header />

@@ -6,6 +6,7 @@ import { CONTACT_INFO } from '@/config/contacts'
 import { PAGE_METADATA } from '@/config/metadata'
 import PageHeader from '@/components/PageHeader'
 import ServiceCard from '@/components/ServiceCard'
+import StructuredData from '@/components/StructuredData'
 
 export const metadata: Metadata = PAGE_METADATA.services
 
@@ -143,6 +144,7 @@ const services = [
 export default function ServicesPage() {
   return (
     <>
+      <StructuredData type="services" />
       <PageHeader
         title="Наші послуги"
         description="Виконуємо повний спектр ремонтних робіт для квартир будь-якої складності. Гарантуємо якість, дотримання термінів та прозорість цін."
