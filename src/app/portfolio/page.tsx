@@ -59,7 +59,7 @@ export default function PortfolioPage() {
     <>
       <section className="dark:to-background w-full bg-gradient-to-b from-blue-50 to-white py-16 dark:from-blue-950/20">
         <div className="container mx-auto max-w-7xl px-4">
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="mx-auto max-w-3xl text-center" data-aos="fade-up">
             <h1 className="text-foreground mb-4 text-4xl font-bold sm:text-5xl">Портфоліо</h1>
             <p className="text-foreground/70 text-lg">
               Переглядайте приклади наших робіт. Кожен проєкт виконаний з максимальною увагою до деталей.
@@ -109,6 +109,8 @@ export default function PortfolioPage() {
                 [1, 2, 3, 4, 5, 6].map(item => (
                   <div
                     key={item}
+                    data-aos="zoom-in"
+                    data-aos-delay={item * 80}
                     className="group bg-foreground/5 relative aspect-[4/3] overflow-hidden rounded-lg transition-transform hover:scale-[1.02]"
                   >
                     <div className="text-foreground/30 flex h-full items-center justify-center">
@@ -124,14 +126,17 @@ export default function PortfolioPage() {
 
           {/* Categories */}
           <div className="mt-16">
-            <h2 className="text-foreground mb-8 text-center text-2xl font-bold">Категорії робіт</h2>
+            <h2 className="text-foreground mb-8 text-center text-2xl font-bold" data-aos="fade-up">
+              Категорії робіт
+            </h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {categories.map(category => (
+              {categories.map((category, index) => (
                 <CategoryCard
                   key={category.id}
                   icon={category.icon}
                   title={category.title}
                   description={category.description}
+                  delay={index * 100}
                 />
               ))}
             </div>
@@ -142,11 +147,13 @@ export default function PortfolioPage() {
       {/* CTA Section */}
       <section className="w-full bg-gradient-to-r from-blue-600 to-blue-700 py-16">
         <div className="container mx-auto max-w-7xl px-4 text-center">
-          <h2 className="mb-4 text-3xl font-bold !text-white">Хочете побачити більше прикладів?</h2>
-          <p className="mb-8 text-lg !text-white/90">
+          <h2 className="mb-4 text-3xl font-bold !text-white" data-aos="fade-up">
+            Хочете побачити більше прикладів?
+          </h2>
+          <p className="mb-8 text-lg !text-white/90" data-aos="fade-up" data-aos-delay="100">
             Зателефонуйте нам, і ми надішлемо додаткові фото та відео наших робіт
           </p>
-          <div className="flex flex-col justify-center gap-4 sm:flex-row">
+          <div className="flex flex-col justify-center gap-4 sm:flex-row" data-aos="fade-up" data-aos-delay="200">
             <a
               href={`tel:${CONTACT_INFO.PHONE.NUMBER}`}
               className="rounded-lg bg-white px-8 py-3 text-base font-semibold text-blue-600 transition-colors hover:bg-gray-100"

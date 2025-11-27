@@ -129,12 +129,12 @@ export default function AboutPage() {
       {/* Qualifications */}
       <section className="bg-background w-full py-16">
         <div className="container mx-auto max-w-7xl px-4">
-          <h2 className="font-heading text-foreground mb-12 text-center text-3xl font-medium">
+          <h2 className="font-heading text-foreground mb-12 text-center text-3xl font-medium" data-aos="fade-up">
             Кваліфікація та навички
           </h2>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {qualifications.map((qualification, index) => (
-              <QualificationCard key={index} {...qualification} />
+              <QualificationCard key={index} {...qualification} delay={index * 100} />
             ))}
           </div>
         </div>
@@ -143,10 +143,12 @@ export default function AboutPage() {
       {/* Work Principles */}
       <section className="bg-background w-full py-16">
         <div className="container mx-auto max-w-7xl px-4">
-          <h2 className="font-heading text-foreground mb-12 text-center text-3xl font-medium">Мої принципи роботи</h2>
+          <h2 className="font-heading text-foreground mb-12 text-center text-3xl font-medium" data-aos="fade-up">
+            Мої принципи роботи
+          </h2>
           <div className="mx-auto max-w-3xl space-y-6">
             {principles.map((principle, index) => (
-              <PrincipleItem key={index} number={index + 1} {...principle} />
+              <PrincipleItem key={index} number={index + 1} {...principle} delay={index * 80} />
             ))}
           </div>
         </div>
@@ -155,11 +157,13 @@ export default function AboutPage() {
       {/* CTA Section */}
       <section className="relative w-full bg-gradient-to-r from-blue-600 to-blue-700 py-16">
         <div className="container mx-auto max-w-7xl px-4 text-center">
-          <h2 className="mb-4 text-3xl font-bold !text-white">Готові почати співпрацю?</h2>
-          <p className="mb-8 text-lg !text-white/90">
+          <h2 className="mb-4 text-3xl font-bold !text-white" data-aos="fade-up">
+            Готові почати співпрацю?
+          </h2>
+          <p className="mb-8 text-lg !text-white/90" data-aos="fade-up" data-aos-delay="100">
             Зателефонуйте мені, щоб обговорити ваш проєкт. Безкоштовно виїду на об'єкт для оцінки та консультації.
           </p>
-          <div className="flex flex-col justify-center gap-4 sm:flex-row">
+          <div className="flex flex-col justify-center gap-4 sm:flex-row" data-aos="fade-up" data-aos-delay="200">
             <a
               href={`tel:${CONTACT_INFO.PHONE.NUMBER}`}
               className="inline-flex items-center justify-center rounded-lg border border-white bg-white px-8 py-3 text-base font-semibold text-blue-600 transition-colors hover:bg-gray-100"

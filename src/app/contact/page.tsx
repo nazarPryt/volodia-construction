@@ -11,7 +11,7 @@ export default function ContactPage() {
     <>
       <section className="dark:to-background w-full bg-gradient-to-b from-blue-50 to-white py-16 dark:from-blue-950/20">
         <div className="container mx-auto max-w-7xl px-4">
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="mx-auto max-w-3xl text-center" data-aos="fade-up">
             <h1 className="text-foreground mb-4 text-4xl font-bold sm:text-5xl">Контакти</h1>
             <p className="text-foreground/70 text-lg">
               Зв'яжіться з нами зручним для вас способом. Ми завжди на зв'язку та готові відповісти на всі питання.
@@ -24,7 +24,7 @@ export default function ContactPage() {
         <div className="container mx-auto max-w-7xl px-4">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             {/* Contact Information */}
-            <div>
+            <div data-aos="fade-right">
               <h2 className="text-foreground mb-8 text-2xl font-bold">Як з нами зв'язатися</h2>
 
               <div className="space-y-6">
@@ -131,7 +131,7 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Form */}
-            <div>
+            <div data-aos="fade-left">
               <div className="bg-card rounded-lg border p-6 lg:p-8">
                 <h2 className="text-foreground mb-6 text-2xl font-bold">Напишіть нам</h2>
                 <p className="text-foreground/70 mb-6">
@@ -147,9 +147,11 @@ export default function ContactPage() {
       {/* FAQ Section */}
       <section className="w-full bg-blue-50 py-16 dark:bg-blue-950/20">
         <div className="container mx-auto max-w-7xl px-4">
-          <h2 className="text-foreground mb-12 text-center text-3xl font-bold">Часті питання</h2>
+          <h2 className="text-foreground mb-12 text-center text-3xl font-bold" data-aos="fade-up">
+            Часті питання
+          </h2>
           <div className="mx-auto max-w-3xl space-y-6">
-            <div className="bg-background rounded-lg p-6">
+            <div className="bg-background rounded-lg p-6" data-aos="fade-up" data-aos-delay="0">
               <h3 className="text-foreground mb-2 text-lg font-semibold">Як швидко ви зможете почати роботу?</h3>
               <p className="text-foreground/70">
                 Зазвичай я можу виїхати на оцінку об'єкта протягом 1-2 днів. Початок робіт можливий через 3-7 днів після
@@ -157,7 +159,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="bg-background rounded-lg p-6">
+            <div className="bg-background rounded-lg p-6" data-aos="fade-up" data-aos-delay="100">
               <h3 className="text-foreground mb-2 text-lg font-semibold">Чи безкоштовний виїзд на об'єкт?</h3>
               <p className="text-foreground/70">
                 Так, я безкоштовно виїжджаю на об'єкт для оцінки обсягу робіт та консультації. Це займає близько 30-60
@@ -165,7 +167,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="bg-background rounded-lg p-6">
+            <div className="bg-background rounded-lg p-6" data-aos="fade-up" data-aos-delay="200">
               <h3 className="text-foreground mb-2 text-lg font-semibold">Як відбувається оплата?</h3>
               <p className="text-foreground/70">
                 Оплата здійснюється поетапно відповідно до виконаних робіт. Зазвичай це 30% аванс, 40% після завершення
@@ -173,7 +175,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="bg-background rounded-lg p-6">
+            <div className="bg-background rounded-lg p-6" data-aos="fade-up" data-aos-delay="300">
               <h3 className="text-foreground mb-2 text-lg font-semibold">Надаєте гарантію?</h3>
               <p className="text-foreground/70">
                 Так, я надаю письмову гарантію на всі види робіт від 1 до 3 років залежно від типу робіт. Завжди
@@ -181,7 +183,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="bg-background rounded-lg p-6">
+            <div className="bg-background rounded-lg p-6" data-aos="fade-up" data-aos-delay="400">
               <h3 className="text-foreground mb-2 text-lg font-semibold">Чи можете допомогти з вибором матеріалів?</h3>
               <p className="text-foreground/70">
                 Звичайно! Я маю великий досвід роботи з різними матеріалами та можу порадити оптимальні варіанти

@@ -7,9 +7,10 @@ interface ServiceCardProps {
   details?: string[]
   price?: string
   link?: string
+  delay?: number
 }
 
-export default function ServiceCard({ icon, title, description, details, price, link }: ServiceCardProps) {
+export default function ServiceCard({ icon, title, description, details, price, link, delay }: ServiceCardProps) {
   const content = (
     <>
       <div className="mb-4 flex items-start justify-between">
@@ -38,6 +39,8 @@ export default function ServiceCard({ icon, title, description, details, price, 
     return (
       <Link
         href={link}
+        data-aos="fade-up"
+        data-aos-delay={delay}
         className="group border-border bg-background-card hover:border-border-hover hover:bg-background-hover block rounded-lg border p-6 transition-all"
       >
         {content}
@@ -46,7 +49,11 @@ export default function ServiceCard({ icon, title, description, details, price, 
   }
 
   return (
-    <div className="group border-border bg-background-card hover:border-border-hover hover:bg-background-hover rounded-lg border p-6 transition-all">
+    <div
+      data-aos="fade-up"
+      data-aos-delay={delay}
+      className="group border-border bg-background-card hover:border-border-hover hover:bg-background-hover rounded-lg border p-6 transition-all"
+    >
       {content}
     </div>
   )

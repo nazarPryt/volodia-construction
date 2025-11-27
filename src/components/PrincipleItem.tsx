@@ -2,11 +2,12 @@ interface PrincipleItemProps {
   number: number
   title: string
   description: string
+  delay?: number
 }
 
-export default function PrincipleItem({ number, title, description }: PrincipleItemProps) {
+export default function PrincipleItem({ number, title, description, delay }: PrincipleItemProps) {
   return (
-    <div className="flex gap-4">
+    <div className="flex gap-4" data-aos="fade-right" data-aos-delay={delay}>
       <div className="bg-primary flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xl text-white">
         {number}
       </div>

@@ -152,7 +152,7 @@ export default function ServicesPage() {
         <div className="container mx-auto max-w-7xl px-4">
           <div className="grid gap-8 lg:grid-cols-2">
             {services.map((service, index) => (
-              <ServiceCard key={index} {...service} />
+              <ServiceCard key={index} {...service} delay={index * 100} />
             ))}
           </div>
         </div>
@@ -162,7 +162,10 @@ export default function ServicesPage() {
       <section className="relative w-full py-12">
         <div className="bg-grid absolute inset-0 opacity-20" />
         <div className="relative z-10 container mx-auto max-w-7xl px-4">
-          <div className="border-border bg-background-card mx-auto max-w-3xl rounded-lg border p-8 text-center">
+          <div
+            className="border-border bg-background-card mx-auto max-w-3xl rounded-lg border p-8 text-center"
+            data-aos="fade-up"
+          >
             <h2 className="font-heading text-foreground mb-4 text-2xl font-medium">
               Індивідуальний розрахунок вартості
             </h2>

@@ -72,7 +72,7 @@ export default function Home() {
       {/* Services Preview */}
       <section className="bg-background relative w-full overflow-hidden py-16">
         <div className="relative z-10 container mx-auto max-w-7xl px-4">
-          <div className="mb-12 text-center">
+          <div className="mb-12 text-center" data-aos="fade-up">
             <h2 className="text-foreground mb-4 text-3xl font-bold">Наші послуги</h2>
             <p className="text-foreground/70">
               Виконуємо всі види ремонтних робіт з високою якістю та дотриманням термінів
@@ -87,11 +87,12 @@ export default function Home() {
                 title={service.title}
                 description={service.description}
                 link={PATH.SERVICES}
+                delay={index * 100}
               />
             ))}
           </div>
 
-          <div className="mt-10 text-center">
+          <div className="mt-10 text-center" data-aos="fade-up" data-aos-delay="200">
             <Link
               href={PATH.SERVICES}
               className="inline-block rounded-lg border-2 border-blue-600 px-8 py-3 text-base font-semibold text-blue-600 transition-colors hover:bg-blue-50 dark:hover:bg-blue-950/20"
@@ -105,7 +106,7 @@ export default function Home() {
       {/* Portfolio Preview */}
       <section className="bg-background w-full py-16">
         <div className="container mx-auto max-w-7xl px-4">
-          <div className="mb-12 text-center">
+          <div className="mb-12 text-center" data-aos="fade-up">
             <h2 className="text-foreground mb-4 text-3xl font-bold">Наші роботи</h2>
             <p className="text-text-muted">Переглядайте приклади виконаних проєктів</p>
           </div>
@@ -115,6 +116,8 @@ export default function Home() {
             {[1, 2, 3].map(item => (
               <div
                 key={item}
+                data-aos="zoom-in"
+                data-aos-delay={item * 100}
                 className="group bg-foreground/5 relative aspect-[4/3] overflow-hidden rounded-lg transition-transform hover:scale-[1.02]"
               >
                 <div className="text-foreground/30 flex h-full items-center justify-center">
@@ -127,7 +130,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="mt-10 text-center">
+          <div className="mt-10 text-center" data-aos="fade-up" data-aos-delay="200">
             <Link href={PATH.PORTFOLIO} className="btn-primary inline-block">
               Дивитись всі роботи
             </Link>
@@ -138,13 +141,19 @@ export default function Home() {
       {/* Why Choose Us */}
       <section className="bg-background relative w-full overflow-hidden py-16">
         <div className="relative z-10 container mx-auto max-w-7xl px-4">
-          <div className="mb-12 text-center">
+          <div className="mb-12 text-center" data-aos="fade-up">
             <h2 className="text-foreground mb-4 text-3xl font-bold">Чому обирають нас</h2>
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {features.map((feature, index) => (
-              <FeatureCard key={index} icon={feature.icon} title={feature.title} description={feature.description} />
+              <FeatureCard
+                key={index}
+                icon={feature.icon}
+                title={feature.title}
+                description={feature.description}
+                delay={index * 100}
+              />
             ))}
           </div>
         </div>
@@ -153,11 +162,13 @@ export default function Home() {
       {/* CTA Section */}
       <section className="w-full bg-gradient-to-r from-blue-600 to-blue-700 py-16">
         <div className="container mx-auto max-w-7xl px-4 text-center">
-          <h2 className="mb-4 text-3xl font-bold !text-white">Готові почати ремонт?</h2>
-          <p className="mb-8 text-lg !text-white/90">
+          <h2 className="mb-4 text-3xl font-bold !text-white" data-aos="fade-up">
+            Готові почати ремонт?
+          </h2>
+          <p className="mb-8 text-lg !text-white/90" data-aos="fade-up" data-aos-delay="100">
             Зателефонуйте нам прямо зараз для безкоштовної консультації та оцінки вартості робіт
           </p>
-          <div className="flex flex-col justify-center gap-4 sm:flex-row">
+          <div className="flex flex-col justify-center gap-4 sm:flex-row" data-aos="fade-up" data-aos-delay="200">
             <a
               href={`tel:${CONTACT_INFO.PHONE.NUMBER}`}
               className="rounded-lg bg-white px-8 py-3 text-base font-semibold text-blue-600 transition-colors hover:bg-gray-100"
