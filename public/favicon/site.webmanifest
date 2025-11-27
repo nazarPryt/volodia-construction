@@ -1,0 +1,21 @@
+{
+  "name": "Ремонт Квартір Тернопіль - Професійний Майстер",
+  "short_name": "Ремонт Квартір",
+  "description": "Якісний ремонт квартир під ключ у Тернополі. Косметичний та капітальний ремонт. Досвідчений майстер, доступні ціни.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#5b22ff",
+  "icons": [
+    {
+      "src": "/favicon/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
