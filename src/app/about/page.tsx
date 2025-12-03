@@ -8,75 +8,101 @@ import PageHeader from '@/components/PageHeader'
 import QualificationCard from '@/components/QualificationCard'
 import PrincipleItem from '@/components/PrincipleItem'
 import StructuredData from '@/components/StructuredData'
+import { client } from '@/sanity/lib/client'
+import { ABOUT_PAGE_QUERY } from '@/sanity/lib/queries'
+import { AboutPageData } from '@/sanity/types/aboutPage'
 
 export const metadata: Metadata = PAGE_METADATA.about
 
-const stats = [
-  { value: '10+', label: 'Років досвіду' },
-  { value: '200+', label: 'Проєктів' },
-  { value: '100%', label: 'Гарантія' },
-  { value: '24/7', label: "На зв'язку" },
-]
-
-const qualifications = [
-  {
-    icon: '🔧',
-    title: 'Спеціалізація',
+// Fallback data in case Sanity is unavailable
+const fallbackData: AboutPageData = {
+  pageHeader: {
+    title: 'Про нас',
+    description: 'Професійний досвід, відповідальний підхід та любов до своєї справи',
+  },
+  qualificationsSection: {
+    title: 'Кваліфікація та навички',
+  },
+  qualifications: [
+    {
+      icon: '🔧',
+      title: 'Спеціалізація',
+      description:
+        'Експертні знання у всіх видах оздоблювальних робіт, електриці, сантехніці. Можу виконати ремонт "під ключ" повністю.',
+    },
+    {
+      icon: '📋',
+      title: 'Сертифікати',
+      description:
+        'Сертифіковані курси з монтажу гіпсокартону, укладання плитки, електромонтажних та сантехнічних робіт.',
+    },
+    {
+      icon: '🛠️',
+      title: 'Інструменти',
+      description:
+        'Власний професійний інструмент європейських брендів. Можу працювати з будь-якими сучасними матеріалами.',
+    },
+    {
+      icon: '💬',
+      title: 'Консультації',
+      description: 'Допоможу підібрати оптимальні матеріали та рішення, порадлю як зекономити без втрати якості.',
+    },
+    {
+      icon: '🤝',
+      title: 'Гарантія',
+      description: 'Надаю гарантію на всі види робіт. Завжди на звязку навіть після завершення ремонту.',
+    },
+  ],
+  principlesSection: {
+    title: 'Мої принципи роботи',
+  },
+  principles: [
+    {
+      title: 'Чесність та прозорість',
+      description: 'Завжди говорю правду про терміни, ціни та можливі складнощі. Ніяких прихованих доплат.',
+    },
+    {
+      title: 'Якість понад усе',
+      description: 'Використовую тільки перевірені матеріали та технології. Кожен етап роботи контролюю особисто.',
+    },
+    {
+      title: 'Пунктуальність',
+      description: 'Приходжу вчасно, дотримуюсь графіка робіт. Поважаю час клієнта та цінію довіру.',
+    },
+    {
+      title: 'Чистота на обєкті',
+      description: 'Після кожного робочого дня прибираю за собою. Намагаюся мінімізувати незручності для клієнта.',
+    },
+    {
+      title: 'Відповідальність',
+      description: 'Беру відповідальність за результат. Якщо щось пішло не так – виправлю за свій рахунок.',
+    },
+  ],
+  ctaSection: {
+    title: 'Готові почати співпрацю?',
     description:
-      'Експертні знання у всіх видах оздоблювальних робіт, електриці, сантехніці. Можу виконати ремонт "під ключ" повністю.',
+      'Зателефонуйте мені, щоб обговорити ваш проєкт. Безкоштовно виїду на обєкт для оцінки та консультації.',
+    primaryButtonText: '📞 Зателефонувати',
+    secondaryButtonText: 'Переглянути роботи',
   },
-  {
-    icon: '📋',
-    title: 'Сертифікати',
-    description:
-      'Сертифіковані курси з монтажу гіпсокартону, укладання плитки, електромонтажних та сантехнічних робіт.',
-  },
-  {
-    icon: '🛠️',
-    title: 'Інструменти',
-    description:
-      'Власний професійний інструмент європейських брендів. Можу працювати з будь-якими сучасними матеріалами.',
-  },
-  {
-    icon: '💬',
-    title: 'Консультації',
-    description: 'Допоможу підібрати оптимальні матеріали та рішення, порадлю як зекономити без втрати якості.',
-  },
-  {
-    icon: '🤝',
-    title: 'Гарантія',
-    description: 'Надаю гарантію на всі види робіт. Завжди на звязку навіть після завершення ремонту.',
-  },
-]
+}
 
-const principles = [
-  {
-    title: 'Чесність та прозорість',
-    description: 'Завжди говорю правду про терміни, ціни та можливі складнощі. Ніяких прихованих доплат.',
-  },
-  {
-    title: 'Якість понад усе',
-    description: 'Використовую тільки перевірені матеріали та технології. Кожен етап роботи контролюю особисто.',
-  },
-  {
-    title: 'Пунктуальність',
-    description: 'Приходжу вчасно, дотримуюсь графіка робіт. Поважаю час клієнта та цінію довіру.',
-  },
-  {
-    title: 'Чистота на обєкті',
-    description: 'Після кожного робочого дня прибираю за собою. Намагаюся мінімізувати незручності для клієнта.',
-  },
-  {
-    title: 'Відповідальність',
-    description: 'Беру відповідальність за результат. Якщо щось пішло не так – виправлю за свій рахунок.',
-  },
-]
+export default async function AboutPage() {
+  // Fetch about page data from Sanity
+  let aboutPageData: AboutPageData | null = null
 
-export default function AboutPage() {
+  try {
+    aboutPageData = await client.fetch(ABOUT_PAGE_QUERY, {}, { next: { revalidate: 60 } })
+  } catch (error) {
+    console.error('Error fetching about page data from Sanity:', error)
+  }
+
+  // Use Sanity data if available, otherwise fallback to hardcoded data
+  const data = aboutPageData || fallbackData
   return (
     <>
       <StructuredData type="about" />
-      <PageHeader title="Про нас" description="Професійний досвід, відповідальний підхід та любов до своєї справи" />
+      <PageHeader title={data.pageHeader.title} description={data.pageHeader.description} />
 
       {/*<section className="bg-background w-full py-16">*/}
       {/*  <div className="container mx-auto max-w-7xl px-4">*/}
@@ -132,10 +158,10 @@ export default function AboutPage() {
       <section className="bg-background w-full py-16">
         <div className="container mx-auto max-w-7xl px-4">
           <h2 className="font-heading text-foreground mb-12 text-center text-3xl font-medium" data-aos="fade-up">
-            Кваліфікація та навички
+            {data.qualificationsSection.title}
           </h2>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {qualifications.map((qualification, index) => (
+            {data.qualifications.map((qualification, index) => (
               <QualificationCard key={index} {...qualification} delay={index * 100} />
             ))}
           </div>
@@ -146,10 +172,10 @@ export default function AboutPage() {
       <section className="bg-background w-full py-16">
         <div className="container mx-auto max-w-7xl px-4">
           <h2 className="font-heading text-foreground mb-12 text-center text-3xl font-medium" data-aos="fade-up">
-            Мої принципи роботи
+            {data.principlesSection.title}
           </h2>
           <div className="mx-auto max-w-3xl space-y-6">
-            {principles.map((principle, index) => (
+            {data.principles.map((principle, index) => (
               <PrincipleItem key={index} number={index + 1} {...principle} delay={index * 80} />
             ))}
           </div>
@@ -160,23 +186,23 @@ export default function AboutPage() {
       <section className="relative w-full bg-gradient-to-r from-blue-600 to-blue-700 py-16">
         <div className="container mx-auto max-w-7xl px-4 text-center">
           <h2 className="mb-4 text-3xl font-bold !text-white" data-aos="fade-up">
-            Готові почати співпрацю?
+            {data.ctaSection.title}
           </h2>
           <p className="mb-8 text-lg !text-white/90" data-aos="fade-up" data-aos-delay="100">
-            Зателефонуйте мені, щоб обговорити ваш проєкт. Безкоштовно виїду на об'єкт для оцінки та консультації.
+            {data.ctaSection.description}
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row" data-aos="fade-up" data-aos-delay="200">
             <a
               href={`tel:${CONTACT_INFO.PHONE.NUMBER}`}
               className="inline-flex items-center justify-center rounded-lg border border-white bg-white px-8 py-3 text-base font-semibold text-blue-600 transition-colors hover:bg-gray-100"
             >
-              📞 Зателефонувати
+              {data.ctaSection.primaryButtonText}
             </a>
             <Link
               href={PATH.PORTFOLIO}
               className="inline-flex items-center justify-center rounded-lg border-2 border-white bg-transparent px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-white/10"
             >
-              Переглянути роботи
+              {data.ctaSection.secondaryButtonText}
             </Link>
           </div>
         </div>
