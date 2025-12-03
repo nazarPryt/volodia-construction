@@ -5,82 +5,129 @@ import CallButton from '@/components/CallButton'
 import Link from 'next/link'
 import { PATH } from '@/config/PATH'
 import { CONTACT_INFO } from '@/config/contacts'
-import { useLog } from '@/shared/log'
+import { client } from '@/sanity/lib/client'
+import { HOME_PAGE_QUERY } from '@/sanity/lib/queries'
+import { HomePageData } from '@/sanity/types/homePage'
 
-const services = [
-  {
-    icon: '🏠',
-    title: 'Ремонт під ключ',
-    description: 'Повний цикл робіт від демонтажу до фінішного оздоблення. Ідеально для нових квартир.',
+// Fallback data in case Sanity is unavailable
+const fallbackData: HomePageData = {
+  hero: {
+    badge: 'Професійний ремонт',
+    title: 'Якісний ремонт квартир',
+    highlightedText: 'під ключ',
+    description:
+      'Професійний досвід, індивідуальний підхід та гарантія якості. Перетворюємо ваші квартири на комфортні простори для життя.',
+    ctaPrimaryText: 'Замовити дзвінок',
+    ctaSecondaryText: 'Дивитись роботи',
   },
-  {
-    icon: '🎨',
-    title: 'Косметичний ремонт',
-    description: "Швидке оновлення інтер'єру: фарбування, шпалери, підлоги та інші оздоблювальні роботи.",
+  benefits: [
+    { value: '10+', label: 'Років досвіду' },
+    { value: '200+', label: 'Завершених проєктів' },
+    { value: '100%', label: 'Задоволених клієнтів' },
+    { value: '24/7', label: 'Підтримка звязку' },
+  ],
+  servicesSection: {
+    title: 'Наші послуги',
+    description: 'Виконуємо всі види ремонтних робіт з високою якістю та дотриманням термінів',
+    buttonText: 'Всі послуги та ціни',
   },
-  {
-    icon: '🔨',
-    title: 'Капітальний ремонт',
-    description: 'Повна реконструкція приміщення з заміною комунікацій та перепланування.',
-  },
-  {
-    icon: '⚡',
-    title: 'Електрика',
-    description: 'Монтаж проводки, установка розеток, світильників та електричних щитів.',
-  },
-  {
-    icon: '🚿',
-    title: 'Сантехніка',
-    description: 'Заміна труб, установка сантехнічного обладнання, підключення приладів.',
-  },
-  {
-    icon: '◼️',
-    title: 'Плиткові роботи',
-    description: 'Укладання керамічної плитки, керамограніту, мозаїки в кухнях та ванних.',
-  },
-]
+  services: [
+    {
+      icon: '🏠',
+      title: 'Ремонт під ключ',
+      description: 'Повний цикл робіт від демонтажу до фінішного оздоблення. Ідеально для нових квартир.',
+    },
+    {
+      icon: '🎨',
+      title: 'Косметичний ремонт',
+      description: "Швидке оновлення інтер'єру: фарбування, шпалери, підлоги та інші оздоблювальні роботи.",
+    },
+    {
+      icon: '🔨',
+      title: 'Капітальний ремонт',
+      description: 'Повна реконструкція приміщення з заміною комунікацій та перепланування.',
+    },
+    {
+      icon: '⚡',
+      title: 'Електрика',
+      description: 'Монтаж проводки, установка розеток, світильників та електричних щитів.',
+    },
+    {
+      icon: '🚿',
+      title: 'Сантехніка',
+      description: 'Заміна труб, установка сантехнічного обладнання, підключення приладів.',
+    },
+    {
+      icon: '◼️',
+      title: 'Плиткові роботи',
+      description: 'Укладання керамічної плитки, керамограніту, мозаїки в кухнях та ванних.',
+    },
+  ],
 
-const features = [
-  {
-    icon: '✅',
-    title: 'Гарантія якості',
-    description: 'Надаємо гарантію на всі види робіт. Використовуємо тільки перевірені матеріали.',
+  portfolioSection: {
+    title: 'Наші роботи',
+    description: 'Переглядайте приклади виконаних проєктів',
+    buttonText: 'Дивитись всі роботи',
   },
-  {
-    icon: '⏱️',
-    title: 'Дотримання термінів',
-    description: 'Складаємо чіткий графік робіт та строго його дотримуємось без затримок.',
+  featuresSection: {
+    title: 'Чому обирають нас',
   },
-  {
-    icon: '💰',
-    title: 'Прозора ціна',
-    description: 'Фіксована вартість після оцінки. Без прихованих платежів та доплат.',
+  features: [
+    {
+      icon: '✅',
+      title: 'Гарантія якості',
+      description: 'Надаємо гарантію на всі види робіт. Використовуємо тільки перевірені матеріали.',
+    },
+    {
+      icon: '⏱️',
+      title: 'Дотримання термінів',
+      description: 'Складаємо чіткий графік робіт та строго його дотримуємось без затримок.',
+    },
+    {
+      icon: '💰',
+      title: 'Прозора ціна',
+      description: 'Фіксована вартість після оцінки. Без прихованих платежів та доплат.',
+    },
+    {
+      icon: '🤝',
+      title: 'Індивідуальний підхід',
+      description: 'Враховуємо всі побажання клієнта та пропонуємо оптимальні рішення.',
+    },
+  ],
+  ctaSection: {
+    title: 'Готові почати ремонт?',
+    description: 'Зателефонуйте нам прямо зараз для безкоштовної консультації та оцінки вартості робіт',
+    primaryButtonText: '📞 Зателефонувати зараз',
+    secondaryButtonText: 'Написати повідомлення',
   },
-  {
-    icon: '🤝',
-    title: 'Індивідуальний підхід',
-    description: 'Враховуємо всі побажання клієнта та пропонуємо оптимальні рішення.',
-  },
-]
+}
 
-export default function Home() {
-  useLog()
+export default async function Home() {
+  // Fetch home page data from Sanity
+  let homePageData: HomePageData | null = null
+
+  try {
+    homePageData = await client.fetch(HOME_PAGE_QUERY, {}, { next: { revalidate: 60 } })
+  } catch (error) {
+    console.error('Error fetching home page data from Sanity:', error)
+  }
+
+  // Use Sanity data if available, otherwise fallback to hardcoded data
+  const data = homePageData || fallbackData
   return (
     <>
-      <Hero />
+      <Hero hero={data.hero} benefits={data.benefits} />
 
       {/* Services Preview */}
       <section className="bg-background relative w-full overflow-hidden py-16">
         <div className="relative z-10 container mx-auto max-w-7xl px-4">
           <div className="mb-12 text-center" data-aos="fade-up">
-            <h2 className="text-foreground mb-4 text-3xl font-bold">Наші послуги</h2>
-            <p className="text-foreground/70">
-              Виконуємо всі види ремонтних робіт з високою якістю та дотриманням термінів
-            </p>
+            <h2 className="text-foreground mb-4 text-3xl font-bold">{data.servicesSection.title}</h2>
+            <p className="text-foreground/70">{data.servicesSection.description}</p>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service, index) => (
+            {data.services.map((service, index) => (
               <ServiceCard
                 key={index}
                 icon={service.icon}
@@ -97,7 +144,7 @@ export default function Home() {
               href={PATH.SERVICES}
               className="inline-block rounded-lg border-2 border-blue-600 px-8 py-3 text-base font-semibold text-blue-600 transition-colors hover:bg-blue-50 dark:hover:bg-blue-950/20"
             >
-              Всі послуги та ціни
+              {data.servicesSection.buttonText}
             </Link>
           </div>
         </div>
@@ -107,8 +154,8 @@ export default function Home() {
       <section className="bg-background w-full py-16">
         <div className="container mx-auto max-w-7xl px-4">
           <div className="mb-12 text-center" data-aos="fade-up">
-            <h2 className="text-foreground mb-4 text-3xl font-bold">Наші роботи</h2>
-            <p className="text-text-muted">Переглядайте приклади виконаних проєктів</p>
+            <h2 className="text-foreground mb-4 text-3xl font-bold">{data.portfolioSection.title}</h2>
+            <p className="text-text-muted">{data.portfolioSection.description}</p>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -132,7 +179,7 @@ export default function Home() {
 
           <div className="mt-10 text-center" data-aos="fade-up" data-aos-delay="200">
             <Link href={PATH.PORTFOLIO} className="btn-primary inline-block">
-              Дивитись всі роботи
+              {data.portfolioSection.buttonText}
             </Link>
           </div>
         </div>
@@ -142,11 +189,11 @@ export default function Home() {
       <section className="bg-background relative w-full overflow-hidden py-16">
         <div className="relative z-10 container mx-auto max-w-7xl px-4">
           <div className="mb-12 text-center" data-aos="fade-up">
-            <h2 className="text-foreground mb-4 text-3xl font-bold">Чому обирають нас</h2>
+            <h2 className="text-foreground mb-4 text-3xl font-bold">{data.featuresSection.title}</h2>
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {features.map((feature, index) => (
+            {data.features.map((feature, index) => (
               <FeatureCard
                 key={index}
                 icon={feature.icon}
@@ -163,23 +210,23 @@ export default function Home() {
       <section className="w-full bg-gradient-to-r from-blue-600 to-blue-700 py-16">
         <div className="container mx-auto max-w-7xl px-4 text-center">
           <h2 className="mb-4 text-3xl font-bold !text-white" data-aos="fade-up">
-            Готові почати ремонт?
+            {data.ctaSection.title}
           </h2>
           <p className="mb-8 text-lg !text-white/90" data-aos="fade-up" data-aos-delay="100">
-            Зателефонуйте нам прямо зараз для безкоштовної консультації та оцінки вартості робіт
+            {data.ctaSection.description}
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row" data-aos="fade-up" data-aos-delay="200">
             <a
               href={`tel:${CONTACT_INFO.PHONE.NUMBER}`}
               className="rounded-lg bg-white px-8 py-3 text-base font-semibold text-blue-600 transition-colors hover:bg-gray-100"
             >
-              📞 Зателефонувати зараз
+              {data.ctaSection.primaryButtonText}
             </a>
             <Link
               href={PATH.CONTACT}
               className="rounded-lg border-2 border-white px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-white/10"
             >
-              Написати повідомлення
+              {data.ctaSection.secondaryButtonText}
             </Link>
           </div>
         </div>

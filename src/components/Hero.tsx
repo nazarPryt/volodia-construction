@@ -2,15 +2,14 @@ import Link from 'next/link'
 import { PATH } from '@/config/PATH'
 import { CONTACT_INFO } from '@/config/contacts'
 import BenefitCard from '@/components/BenefitCard'
+import { HeroSection, Benefit } from '@/sanity/types/homePage'
 
-const benefits = [
-  { value: '10+', label: 'Років досвіду' },
-  { value: '200+', label: 'Завершених проєктів' },
-  { value: '100%', label: 'Задоволених клієнтів' },
-  { value: '24/7', label: 'Підтримка звязку' },
-]
+interface HeroProps {
+  hero: HeroSection
+  benefits: Benefit[]
+}
 
-export default function Hero() {
+export default function Hero({ hero, benefits }: HeroProps) {
   return (
     <section className="bg-background relative w-full overflow-hidden py-20 md:py-32">
       <div className="bg-grid absolute inset-0 opacity-50" />
@@ -23,7 +22,7 @@ export default function Hero() {
             data-aos="fade-down"
           >
             <span className="bg-primary h-2 w-2 animate-pulse rounded-full" />
-            <span className="text-text-dim text-xs font-medium tracking-wider uppercase">Професійний ремонт</span>
+            <span className="text-text-dim text-xs font-medium tracking-wider uppercase">{hero.badge}</span>
           </div>
 
           <h1
@@ -31,9 +30,9 @@ export default function Hero() {
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            Якісний ремонт квартир{' '}
+            {hero.title}{' '}
             <span className="from-primary to-primary-hover bg-gradient-to-r bg-clip-text text-transparent">
-              під ключ
+              {hero.highlightedText}
             </span>
           </h1>
 
@@ -42,8 +41,7 @@ export default function Hero() {
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            Професійний досвід, індивідуальний підхід та гарантія якості. Перетворюємо ваші квартири на комфортні
-            простори для життя.
+            {hero.description}
           </p>
 
           <div className="flex flex-col justify-center gap-4 sm:flex-row" data-aos="fade-up" data-aos-delay="300">
@@ -51,13 +49,13 @@ export default function Hero() {
               href={`tel:${CONTACT_INFO.PHONE.NUMBER}`}
               className="btn-primary inline-flex items-center justify-center"
             >
-              Замовити дзвінок
+              {hero.ctaPrimaryText}
             </a>
             <Link
               href={PATH.PORTFOLIO}
               className="border-foreground text-foreground hover:bg-foreground hover:text-background inline-flex items-center justify-center border bg-transparent px-8 py-4 text-base font-medium transition-all"
             >
-              Дивитись роботи
+              {hero.ctaSecondaryText}
             </Link>
           </div>
         </div>

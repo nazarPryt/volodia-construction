@@ -11,6 +11,7 @@
 !.yarn/versions
 .playwright-mcp
 .claude
+.serena
 # testing
 /coverage
 /md
