@@ -14,13 +14,6 @@ export const contactPageSchema = defineType({
       description: 'Frequently Asked Questions section',
       fields: [
         defineField({
-          name: 'title',
-          title: 'Section Title',
-          type: 'string',
-          description: 'Main heading (e.g., "Часті питання")',
-          validation: Rule => Rule.required(),
-        }),
-        defineField({
           name: 'items',
           title: 'FAQ Items',
           type: 'array',

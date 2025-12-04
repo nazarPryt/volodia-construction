@@ -13,7 +13,6 @@ export const metadata: Metadata = PAGE_METADATA.contact
 // Fallback FAQ data if Sanity is unavailable
 const fallbackFAQData: ContactPageData = {
   faqSection: {
-    title: 'Часті питання',
     items: [
       {
         question: 'Як швидко ви зможете почати роботу?',

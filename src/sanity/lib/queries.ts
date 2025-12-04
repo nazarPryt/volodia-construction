@@ -82,7 +82,6 @@ export const ABOUT_PAGE_QUERY = defineQuery(`
 export const CONTACT_PAGE_QUERY = defineQuery(`
   *[_type == "contactPage"][0] {
     faqSection {
-      title,
       items[] {
         question,
         answer

@@ -6,7 +6,6 @@ export interface FAQItem {
 }
 
 export interface FAQSection {
-  title: string
   items: FAQItem[]
 }
 

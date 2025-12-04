@@ -9,7 +9,7 @@ export default function FAQSection({ faqData }: FAQSectionProps) {
     <section className="w-full bg-blue-50 py-16 dark:bg-blue-950/20">
       <div className="container mx-auto max-w-7xl px-4">
         <h2 className="text-foreground mb-12 text-center text-3xl font-bold" data-aos="fade-up">
-          {faqData.title}
+          Часті питання:
         </h2>
         <div className="mx-auto max-w-3xl space-y-6">
           {faqData.items.map((item, index) => (
