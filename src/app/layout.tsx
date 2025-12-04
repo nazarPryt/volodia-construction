@@ -8,6 +8,7 @@ import { BASE_METADATA, PAGE_METADATA } from '@/config/metadata'
 import { ReactNode } from 'react'
 import AOSInit from '@/shared/AOSInit'
 import StructuredData from '@/components/StructuredData'
+import { getOwnerInfo } from '@/sanity/lib/getOwnerInfo'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -24,20 +25,23 @@ export const metadata: Metadata = {
   ...PAGE_METADATA.home,
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: ReactNode
 }>) {
+  // Fetch owner info once at root level
+  const ownerInfo = await getOwnerInfo()
+
   return (
     <html lang="uk" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <StructuredData type="home" />
+        <StructuredData type="home" ownerInfo={ownerInfo} />
         <ThemeProvider>
           <AOSInit />
-          <Header />
+          <Header ownerInfo={ownerInfo} />
           <main className="min-h-screen">{children}</main>
-          <Footer />
+          <Footer ownerInfo={ownerInfo} />
         </ThemeProvider>
       </body>
     </html>

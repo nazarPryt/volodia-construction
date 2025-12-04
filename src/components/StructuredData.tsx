@@ -1,11 +1,12 @@
-import { CONTACT_INFO } from '@/config/contacts'
 import { SITE_CONFIG } from '@/config/metadata'
+import { OwnerInfo } from '@/sanity/types/ownerInfo'
 
 interface StructuredDataProps {
   type?: 'home' | 'about' | 'services' | 'portfolio' | 'contact'
+  ownerInfo: OwnerInfo
 }
 
-export default function StructuredData({ type = 'home' }: StructuredDataProps) {
+export default function StructuredData({ type = 'home', ownerInfo }: StructuredDataProps) {
   const baseUrl = SITE_CONFIG.url
 
   // Organization Schema - show on all pages
@@ -16,8 +17,8 @@ export default function StructuredData({ type = 'home' }: StructuredDataProps) {
     name: 'Ремонт Квартир Тернопіль',
     description: 'Професійний ремонт квартир під ключ у Тернополі',
     url: baseUrl,
-    telephone: CONTACT_INFO.PHONE.NUMBER,
-    email: CONTACT_INFO.EMAIL,
+    telephone: ownerInfo.phone.number,
+    email: ownerInfo.email,
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Тернопіль',
@@ -48,14 +49,14 @@ export default function StructuredData({ type = 'home' }: StructuredDataProps) {
         closes: '18:00',
       },
     ],
-    sameAs: [`https://t.me/${CONTACT_INFO.SOCIAL.TELEGRAM}`, `https://wa.me/${CONTACT_INFO.SOCIAL.WHATSAPP}`],
+    sameAs: [`https://t.me/${ownerInfo.social.telegram}`, `https://wa.me/${ownerInfo.social.whatsapp}`],
   }
 
   // Person Schema for About page
   const personSchema: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: 'Володимир Батькович',
+    name: 'Володимир Батькович', //todo make real name
     jobTitle: 'Професійний Майстер з ремонту квартир',
     worksFor: {
       '@id': `${baseUrl}#organization`,
@@ -65,8 +66,8 @@ export default function StructuredData({ type = 'home' }: StructuredDataProps) {
       addressLocality: 'Тернопіль',
       addressCountry: 'UA',
     },
-    telephone: CONTACT_INFO.PHONE.NUMBER,
-    email: CONTACT_INFO.EMAIL,
+    telephone: ownerInfo.phone.number,
+    email: ownerInfo.email,
   }
 
   // Service Schema for Services page
@@ -85,6 +86,7 @@ export default function StructuredData({ type = 'home' }: StructuredDataProps) {
       '@type': 'OfferCatalog',
       name: 'Послуги з ремонту',
       itemListElement: [
+        //todo take it from Sanity
         {
           '@type': 'Offer',
           itemOffered: {
@@ -202,7 +204,7 @@ export default function StructuredData({ type = 'home' }: StructuredDataProps) {
           key={index}
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(schema).replace(/</g, '\u003c'),
+            __html: JSON.stringify(schema).replace(/</g, '\u003c').replace(/>/g, '\u003e').replace(/&/g, '\u0026'),
           }}
         />
       ))}

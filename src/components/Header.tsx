@@ -4,11 +4,15 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect, useRef } from 'react'
 import { PATH } from '@/config/PATH'
-import { CONTACT_INFO } from '@/config/contacts'
 import { NAVIGATION } from '@/config/navigation'
 import ThemeToggle from '@/components/ThemeToggle'
+import { OwnerInfo } from '@/sanity/types/ownerInfo'
 
-export default function Header() {
+interface HeaderProps {
+  ownerInfo: OwnerInfo
+}
+
+export default function Header({ ownerInfo }: HeaderProps) {
   const pathname = usePathname()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const mobileMenuRef = useRef<HTMLDivElement>(null)
@@ -76,7 +80,7 @@ export default function Header() {
 
             {/* CTA Button */}
             <a
-              href={`tel:${CONTACT_INFO.PHONE.NUMBER}`}
+              href={`tel:${ownerInfo.phone.number}`}
               className="btn-primary hidden md:inline-flex md:items-center md:justify-center"
             >
               Зателефонувати
@@ -169,7 +173,7 @@ export default function Header() {
           {/* Call Button at Bottom */}
           <div className="border-border border-t px-6 py-4">
             <a
-              href={`tel:${CONTACT_INFO.PHONE.NUMBER}`}
+              href={`tel:${ownerInfo.phone.number}`}
               className="btn-primary block text-center"
               onClick={() => setIsMobileMenuOpen(false)}
             >

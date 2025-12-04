@@ -1,15 +1,16 @@
 import Link from 'next/link'
 import { PATH } from '@/config/PATH'
-import { CONTACT_INFO } from '@/config/contacts'
 import BenefitCard from '@/components/BenefitCard'
 import { HeroSection, Benefit } from '@/sanity/types/homePage'
+import { OwnerInfo } from '@/sanity/types/ownerInfo'
 
 interface HeroProps {
   hero: HeroSection
   benefits: Benefit[]
+  ownerInfo: OwnerInfo
 }
 
-export default function Hero({ hero, benefits }: HeroProps) {
+export default function Hero({ hero, benefits, ownerInfo }: HeroProps) {
   return (
     <section className="bg-background relative w-full overflow-hidden py-20 md:py-32">
       <div className="bg-grid absolute inset-0 opacity-50" />
@@ -45,10 +46,7 @@ export default function Hero({ hero, benefits }: HeroProps) {
           </p>
 
           <div className="flex flex-col justify-center gap-4 sm:flex-row" data-aos="fade-up" data-aos-delay="300">
-            <a
-              href={`tel:${CONTACT_INFO.PHONE.NUMBER}`}
-              className="btn-primary inline-flex items-center justify-center"
-            >
+            <a href={`tel:${ownerInfo.phone.number}`} className="btn-primary inline-flex items-center justify-center">
               {hero.ctaPrimaryText}
             </a>
             <Link

@@ -2,11 +2,11 @@ import { Metadata } from 'next'
 import CallButton from '@/components/CallButton'
 import Link from 'next/link'
 import { PATH } from '@/config/PATH'
-import { CONTACT_INFO } from '@/config/contacts'
 import { PAGE_METADATA } from '@/config/metadata'
 import PageHeader from '@/components/PageHeader'
 import ServiceCard from '@/components/ServiceCard'
 import StructuredData from '@/components/StructuredData'
+import { getOwnerInfo } from '@/sanity/lib/getOwnerInfo'
 
 export const metadata: Metadata = PAGE_METADATA.services
 
@@ -141,10 +141,13 @@ const services = [
   },
 ]
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  // Fetch owner info
+  const ownerInfo = await getOwnerInfo()
+
   return (
     <>
-      <StructuredData type="services" />
+      <StructuredData type="services" ownerInfo={ownerInfo} />
       <PageHeader
         title="Наші послуги"
         description="Виконуємо повний спектр ремонтних робіт для квартир будь-якої складності. Гарантуємо якість, дотримання термінів та прозорість цін."
@@ -176,10 +179,7 @@ export default function ServicesPage() {
               проєкту. Зателефонуйте нам для безкоштовної консультації та виїзду на обєкт.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <a
-                href={`tel:${CONTACT_INFO.PHONE.NUMBER}`}
-                className="btn-primary inline-flex items-center justify-center"
-              >
+              <a href={`tel:${ownerInfo.phone.number}`} className="btn-primary inline-flex items-center justify-center">
                 Замовити розрахунок
               </a>
               <Link
@@ -193,7 +193,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <CallButton />
+      <CallButton ownerInfo={ownerInfo} />
     </>
   )
 }

@@ -4,8 +4,8 @@ import CallButton from '@/components/CallButton'
 import CategoryCard from '@/components/CategoryCard'
 import Link from 'next/link'
 import { PATH } from '@/config/PATH'
-import { CONTACT_INFO } from '@/config/contacts'
 import { PAGE_METADATA } from '@/config/metadata'
+import { getOwnerInfo } from '@/sanity/lib/getOwnerInfo'
 
 export const metadata: Metadata = PAGE_METADATA.portfolio
 
@@ -53,7 +53,10 @@ const categories = [
   },
 ]
 
-export default function PortfolioPage() {
+export default async function PortfolioPage() {
+  // Fetch owner info
+  const ownerInfo = await getOwnerInfo()
+
   const hasPortfolioItems = portfolioItems.length > 0
   return (
     <>
@@ -155,7 +158,7 @@ export default function PortfolioPage() {
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row" data-aos="fade-up" data-aos-delay="200">
             <a
-              href={`tel:${CONTACT_INFO.PHONE.NUMBER}`}
+              href={`tel:${ownerInfo.phone.number}`}
               className="rounded-lg bg-white px-8 py-3 text-base font-semibold text-blue-600 transition-colors hover:bg-gray-100"
             >
               📞 Зателефонувати
@@ -170,7 +173,7 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <CallButton />
+      <CallButton ownerInfo={ownerInfo} />
     </>
   )
 }

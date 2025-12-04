@@ -1,9 +1,13 @@
 'use client'
 
-import { useState } from 'react'
-import { CONTACT_INFO } from '@/config/contacts'
+import { ChangeEvent, FormEvent, useState } from 'react'
+import { OwnerInfo } from '@/sanity/types/ownerInfo'
 
-export default function ContactForm() {
+interface ContactFormProps {
+  ownerInfo: OwnerInfo
+}
+
+export default function ContactForm({ ownerInfo }: ContactFormProps) {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -12,7 +16,7 @@ export default function ContactForm() {
   })
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     setStatus('submitting')
 
@@ -27,7 +31,7 @@ export default function ContactForm() {
     }, 1000)
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value,
@@ -121,8 +125,8 @@ export default function ContactForm() {
 
       <p className="text-foreground/60 text-center text-sm">
         Або зателефонуйте нам:{' '}
-        <a href={`tel:${CONTACT_INFO.PHONE.NUMBER}`} className="font-semibold text-blue-600 hover:underline">
-          {CONTACT_INFO.PHONE.DISPLAY}
+        <a href={`tel:${ownerInfo.phone.number}`} className="font-semibold text-blue-600 hover:underline">
+          {ownerInfo.phone.display}
         </a>
       </p>
     </form>

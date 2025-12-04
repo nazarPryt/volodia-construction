@@ -4,10 +4,10 @@ import FeatureCard from '@/components/FeatureCard'
 import CallButton from '@/components/CallButton'
 import Link from 'next/link'
 import { PATH } from '@/config/PATH'
-import { CONTACT_INFO } from '@/config/contacts'
 import { client } from '@/sanity/lib/client'
 import { HOME_PAGE_QUERY } from '@/sanity/lib/queries'
 import { HomePageData } from '@/sanity/types/homePage'
+import { getOwnerInfo } from '@/sanity/lib/getOwnerInfo'
 
 // Fallback data in case Sanity is unavailable
 const fallbackData: HomePageData = {
@@ -114,9 +114,12 @@ export default async function Home() {
 
   // Use Sanity data if available, otherwise fallback to hardcoded data
   const data = homePageData || fallbackData
+
+  // Fetch owner info
+  const ownerInfo = await getOwnerInfo()
   return (
     <>
-      <Hero hero={data.hero} benefits={data.benefits} />
+      <Hero hero={data.hero} benefits={data.benefits} ownerInfo={ownerInfo} />
 
       {/* Services Preview */}
       <section className="bg-background relative w-full overflow-hidden py-16">
@@ -217,7 +220,7 @@ export default async function Home() {
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row" data-aos="fade-up" data-aos-delay="200">
             <a
-              href={`tel:${CONTACT_INFO.PHONE.NUMBER}`}
+              href={`tel:${ownerInfo.phone.number}`}
               className="rounded-lg bg-white px-8 py-3 text-base font-semibold text-blue-600 transition-colors hover:bg-gray-100"
             >
               {data.ctaSection.primaryButtonText}
@@ -232,7 +235,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <CallButton />
+      <CallButton ownerInfo={ownerInfo} />
     </>
   )
 }

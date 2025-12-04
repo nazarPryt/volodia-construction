@@ -1,9 +1,13 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { CONTACT_INFO } from '@/config/contacts'
 import { NAVIGATION } from '@/config/navigation'
+import { OwnerInfo } from '@/sanity/types/ownerInfo'
 
-export default function Footer() {
+interface FooterProps {
+  ownerInfo: OwnerInfo
+}
+
+export default function Footer({ ownerInfo }: FooterProps) {
   return (
     <footer className="border-border bg-background relative w-full overflow-hidden border-t">
       {/* Background image - only visible on light theme */}
@@ -47,23 +51,20 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <a
-                  href={`tel:${CONTACT_INFO.PHONE.NUMBER}`}
+                  href={`tel:${ownerInfo.phone.number}`}
                   className="text-text-muted hover:text-primary transition-colors"
                 >
-                  {CONTACT_INFO.PHONE.DISPLAY}
+                  {ownerInfo.phone.display}
                 </a>
               </li>
               <li>
-                <a
-                  href={`mailto:${CONTACT_INFO.EMAIL}`}
-                  className="text-text-muted hover:text-primary transition-colors"
-                >
-                  {CONTACT_INFO.EMAIL}
+                <a href={`mailto:${ownerInfo.email}`} className="text-text-muted hover:text-primary transition-colors">
+                  {ownerInfo.email}
                 </a>
               </li>
               <li className="flex gap-3 pt-2">
                 <a
-                  href={`https://t.me/${CONTACT_INFO.SOCIAL.TELEGRAM}`}
+                  href={`https://t.me/${ownerInfo.social.telegram}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-text-muted hover:text-primary transition-colors"
@@ -71,13 +72,13 @@ export default function Footer() {
                   Telegram
                 </a>
                 <a
-                  href={`viber://chat?number=${CONTACT_INFO.SOCIAL.VIBER}`}
+                  href={`viber://chat?number=${ownerInfo.social.viber}`}
                   className="text-text-muted hover:text-primary transition-colors"
                 >
                   Viber
                 </a>
                 <a
-                  href={`https://wa.me/${CONTACT_INFO.SOCIAL.WHATSAPP}`}
+                  href={`https://wa.me/${ownerInfo.social.whatsapp}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-text-muted hover:text-primary transition-colors"
@@ -90,7 +91,7 @@ export default function Footer() {
         </div>
 
         <div className="border-border text-text-muted mt-8 border-t pt-8 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} Ремонт Квартір. Всі права захищено.</p>
+          <p>&copy; {new Date().getFullYear()} Ремонт Квартир. Всі права захищено.</p>
           <p className="text-text-dim mt-2 text-xs">
             Зроблено з ❤️{' '}
             <a

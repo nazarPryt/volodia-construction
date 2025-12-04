@@ -1,11 +1,15 @@
 'use client'
 
-import { CONTACT_INFO } from '@/config/contacts'
+import { OwnerInfo } from '@/sanity/types/ownerInfo'
 
-export default function CallButton() {
+interface CallButtonProps {
+  ownerInfo: OwnerInfo
+}
+
+export default function CallButton({ ownerInfo }: CallButtonProps) {
   return (
     <a
-      href={`tel:${CONTACT_INFO.PHONE.NUMBER}`}
+      href={`tel:${ownerInfo.phone.number}`}
       className="fixed right-6 bottom-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 text-2xl text-white shadow-lg transition-all hover:scale-110 hover:bg-blue-700 sm:h-auto sm:w-auto sm:rounded-lg sm:px-6 sm:py-3"
       aria-label="Зателефонувати"
     >

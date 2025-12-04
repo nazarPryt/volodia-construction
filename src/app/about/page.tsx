@@ -2,13 +2,13 @@ import { Metadata } from 'next'
 import CallButton from '@/components/CallButton'
 import Link from 'next/link'
 import { PATH } from '@/config/PATH'
-import { CONTACT_INFO } from '@/config/contacts'
 import { PAGE_METADATA } from '@/config/metadata'
 import PageHeader from '@/components/PageHeader'
 import QualificationCard from '@/components/QualificationCard'
 import PrincipleItem from '@/components/PrincipleItem'
 import StructuredData from '@/components/StructuredData'
 import { client } from '@/sanity/lib/client'
+import { getOwnerInfo } from '@/sanity/lib/getOwnerInfo'
 import { ABOUT_PAGE_QUERY } from '@/sanity/lib/queries'
 import { AboutPageData } from '@/sanity/types/aboutPage'
 
@@ -99,9 +99,13 @@ export default async function AboutPage() {
 
   // Use Sanity data if available, otherwise fallback to hardcoded data
   const data = aboutPageData || fallbackData
+
+  // Fetch owner info
+  const ownerInfo = await getOwnerInfo()
+
   return (
     <>
-      <StructuredData type="about" />
+      <StructuredData type="about" ownerInfo={ownerInfo} />
       <PageHeader title={data.pageHeader.title} description={data.pageHeader.description} />
 
       {/*<section className="bg-background w-full py-16">*/}
@@ -193,7 +197,7 @@ export default async function AboutPage() {
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row" data-aos="fade-up" data-aos-delay="200">
             <a
-              href={`tel:${CONTACT_INFO.PHONE.NUMBER}`}
+              href={`tel:${ownerInfo.phone.number}`}
               className="inline-flex items-center justify-center rounded-lg border border-white bg-white px-8 py-3 text-base font-semibold text-blue-600 transition-colors hover:bg-gray-100"
             >
               {data.ctaSection.primaryButtonText}
@@ -208,7 +212,7 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      <CallButton />
+      <CallButton ownerInfo={ownerInfo} />
     </>
   )
 }
