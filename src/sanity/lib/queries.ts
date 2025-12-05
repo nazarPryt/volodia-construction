@@ -90,6 +90,19 @@ export const CONTACT_PAGE_QUERY = defineQuery(`
   }
 `)
 
+// Services Page Query - Fetches all content for the services page
+export const SERVICES_PAGE_QUERY = defineQuery(`
+  *[_type == "servicesPage"][0] {
+    services[] {
+      icon,
+      title,
+      description,
+      details,
+      price
+    }
+  }
+`)
+
 // Owner Info Query - Fetches owner/business contact information
 export const OWNER_INFO_QUERY = defineQuery(`
   *[_type == "ownerInfo"][0] {
